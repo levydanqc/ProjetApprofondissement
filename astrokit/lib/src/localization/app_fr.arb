@@ -1,0 +1,6 @@
+{
+  "appTitle": "AstroKit",
+  "@appTitle": {
+    "description": "Titre de l'application"
+  }
+}
