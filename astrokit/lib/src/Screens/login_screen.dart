@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import '../const.dart';
+import 'package:flutter_login/flutter_login.dart';
+import '../const.dart' as env;
+import 'package:crypto/crypto.dart';
+import 'dart:convert';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -13,16 +16,64 @@ class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  String _pwdError = "";
-  String _emailError = "";
+  Duration get loginTime => const Duration(milliseconds: 200);
 
-  Color? labelColor = Colors.black;
+  static const users = {
+    'danlevy.ca@icloud.com': 'Test',
+  };
 
   @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
+  }
+
+  String _hashPwd(LoginData loginData) {
+    List<int> bytes = utf8.encode(loginData.password);
+    Digest digest = sha256.convert(bytes);
+    return digest.toString();
+  }
+
+  Future<String?>? _signup(LoginData loginData) {
+    return Future.delayed(loginTime).then((_) {
+      print("SignUp");
+      return "SignUp";
+    });
+  }
+
+  Future<String?>? _login(LoginData loginData) {
+    return Future.delayed(loginTime).then((_) {
+      print(_hashPwd(loginData));
+      return null;
+    });
+  }
+
+  String? _validateUser(String? email) {
+    if (email == "") {
+      return "L'adresse email ne peut être vide.";
+    }
+    if (!RegExp(r"^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$")
+        .hasMatch(email!)) {
+      return "L'adresse email n'est pas valide.";
+    }
+    return null;
+  }
+
+  String? _validatePwd(String? pwd) {
+    if (pwd == "") {
+      return "Le mot de passe ne peut être vide.";
+    }
+    return null;
+  }
+
+  Future<String> _recoverPassword(String name) {
+    return Future.delayed(loginTime).then((_) {
+      if (!users.containsKey(name)) {
+        return "L'adresse mail n'est pas inscrite.";
+      }
+      return "null";
+    });
   }
 
   @override
@@ -37,132 +88,58 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          Align(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 40),
-                  child: Image.asset('assets/images/logo.png'),
-                ),
-                Wrap(
-                  children: [
-                    Container(
-                      alignment: Alignment.topLeft,
-                      padding: const EdgeInsets.symmetric(horizontal: 25),
-                      child: TextErreur(erreur: "Erreur de email"),
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 50),
+            child: Image.asset("assets/images/logo.png"),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 50),
+            child: FlutterLogin(
+              messages: loginMessages,
+              theme: LoginTheme(
+                switchAuthTextColor: Colors.white,
+                authButtonPadding: const EdgeInsets.symmetric(vertical: 50),
+                pageColorDark: Colors.transparent,
+                pageColorLight: Colors.transparent,
+                primaryColor: env.brown,
+                accentColor: Colors.transparent,
+                buttonStyle: const TextStyle(fontSize: 15),
+                buttonTheme: const LoginButtonTheme(
+                  elevation: 10,
+                  splashColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    side: BorderSide(
+                      color: Colors.white,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 25, vertical: 10),
-                      child: TextField(
-                        style: const TextStyle(
-                          color: Colors.black,
-                        ),
-                        decoration: const InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.transparent),
-                          ),
-                          labelStyle: TextStyle(
-                            color: brown,
-                          ),
-                          border: OutlineInputBorder(),
-                          labelText: "Email",
-                          filled: true,
-                          fillColor: Colors.white,
-                          prefixIcon:
-                              Icon(Icons.email_outlined, color: Colors.black),
-                        ),
-                        onEditingComplete: () =>
-                            FocusScope.of(context).nextFocus(),
-                        controller: _emailController,
-                      ),
-                    ),
-                  ],
-                ),
-                Wrap(
-                  children: [
-                    Container(
-                      alignment: Alignment.topLeft,
-                      padding: const EdgeInsets.symmetric(horizontal: 25),
-                      child: TextErreur(erreur: "Erreur de password"),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 25, vertical: 10),
-                      child: TextField(
-                        style: const TextStyle(
-                          color: Colors.black,
-                        ),
-                        decoration: const InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.transparent),
-                          ),
-                          labelStyle: TextStyle(
-                            color: brown,
-                          ),
-                          border: OutlineInputBorder(),
-                          labelText: "Mot de passe",
-                          filled: true,
-                          fillColor: Colors.white,
-                          prefixIcon: Icon(Icons.password_outlined,
-                              color: Colors.black),
-                        ),
-                        onEditingComplete: () =>
-                            FocusScope.of(context).unfocus(),
-                        controller: _passwordController,
-                        obscureText: true,
-                        enableSuggestions: false,
-                        autocorrect: false,
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: TextButton(
-                          style: TextButton.styleFrom(
-                            primary: Colors.grey[300],
-                          ),
-                          onPressed: () {},
-                          child: const Text("Mot de passe oublié ?"),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 50),
-                  child: OutlinedButton.icon(
-                    icon: const Icon(Icons.login_outlined),
-                    style: OutlinedButton.styleFrom(
-                      primary: Colors.white,
-                      backgroundColor: brown,
-                      elevation: 10,
-                      side: const BorderSide(
-                        color: Colors.white,
-                        width: 1.5,
-                      ),
-                    ),
-                    onPressed: () {
-                      print(_passwordController.text);
-                      print(_emailController.text);
-                    },
-                    label: const Text("Se connecter"),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: TextButton(
-                    style: ButtonStyle(
-                      foregroundColor:
-                          MaterialStateProperty.all<Color>(Colors.black),
-                    ),
-                    onPressed: () {},
-                    child: const Text("Pas encore de compte ? Sign up"),
+                cardTheme: const CardTheme(
+                  color: Colors.transparent,
+                  elevation: 0,
+                ),
+                inputTheme: const InputDecorationTheme(
+                  labelStyle: TextStyle(color: Colors.white),
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: env.brown),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                 ),
-              ],
+                bodyStyle: const TextStyle(
+                  color: Colors.black,
+                ),
+              ),
+              onLogin: _login,
+              userValidator: _validateUser,
+              passwordValidator: _validatePwd,
+              onSignup: _signup,
+              onSubmitAnimationCompleted: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => const LoginScreen(),
+                ));
+              },
+              onRecoverPassword: _recoverPassword,
             ),
           )
         ],
@@ -171,16 +148,19 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-// ignore: must_be_immutable
-class TextErreur extends StatelessWidget {
-  const TextErreur({required String erreur, Key? key})
-      : _erreur = erreur,
-        super(key: key);
-
-  final String _erreur;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(_erreur, style: const TextStyle(color: Colors.red));
-  }
-}
+LoginMessages loginMessages = LoginMessages(
+    userHint: "Email",
+    passwordHint: "Mot de passe",
+    loginButton: "Se connecter",
+    signUpSuccess: "Un lien d'inscription à été envoyé",
+    confirmPasswordHint: "Confirmation",
+    signupButton: "S'inscrire",
+    recoverPasswordSuccess: "Un email à été envoyée",
+    forgotPasswordButton: "Mot de passe oublié ?",
+    recoverPasswordIntro: "Réinitialiser le mot de passe",
+    recoverPasswordDescription:
+        "Vous recevrez un lien par email pour réinitialiser votre mot de passe",
+    recoverPasswordButton: "Réinitialiser",
+    goBackButton: "Retour",
+    flushbarTitleSuccess: "Réussi",
+    flushbarTitleError: "Erreur");
