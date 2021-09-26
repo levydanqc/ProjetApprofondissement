@@ -18,7 +18,6 @@ class Validation {
 
   static Future<String?>? signup(LoginData loginData) {
     return Future.delayed(loginTime).then((_) {
-      print("SignUp");
       return "SignUp";
     });
   }
@@ -56,6 +55,14 @@ class Validation {
     if (pwd == "") {
       return "Le mot de passe ne peut être vide.";
     }
+    if (pwd!.length < 4) {
+      return "Le mot de passe doit contenir\nau minimum 4 caractères.";
+    }
+    if (RegExp(r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$")
+        .hasMatch(pwd)) {
+      return "Le mot de passe doit contenir :\n- Une majuscule\n- Une minuscule\n- Un chiffre\n- Un caractère spécial\n- Au minimum 8 caractères";
+    }
+
     return null;
   }
 
