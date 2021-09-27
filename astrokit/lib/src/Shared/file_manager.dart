@@ -1,26 +1,18 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class File {
-  late String value;
-  late String key;
+  static String? value;
+  static String? key;
 
   static const storage = FlutterSecureStorage();
   static const options =
       IOSOptions(accessibility: IOSAccessibility.first_unlock_this_device);
 
-  File.write(key, value) {
-    _write(key, value);
+  static void write(String key, String value) async {
+    return await storage.write(key: key, value: value, iOptions: options);
   }
 
-  File.read(this.key) {
-    value = _read(key).toString();
-  }
-
-  static _write(key, value) async {
-    await storage.write(key: key, value: value, iOptions: options);
-  }
-
-  static Future<String?> _read(key) async {
+  static Future read(String key) async {
     return await storage.read(key: key, iOptions: options);
   }
 }

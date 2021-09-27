@@ -23,14 +23,19 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
+  // TODO: Correct scrollable widget when keyboard
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).requestFocus(FocusNode());
+      },
+      child: Stack(
         children: <Widget>[
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
+                fit: BoxFit.fitWidth,
                 image: AssetImage("assets/images/background.png"),
               ),
             ),
@@ -40,8 +45,8 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Image.asset("assets/images/logo.png"),
           ),
           FlutterLogin(
-            
             messages: loginMessages,
+            logo: null,
             theme: LoginTheme(
               errorColor: Colors.redAccent.shade400,
               switchAuthTextColor: Colors.white,
@@ -64,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
               cardTheme: const CardTheme(
                 color: Colors.transparent,
                 elevation: 0,
-                margin: EdgeInsets.only(top: 50),
+                margin: EdgeInsets.only(top: 30),
               ),
               inputTheme: const InputDecorationTheme(
                 labelStyle: TextStyle(color: Colors.white),
@@ -75,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               bodyStyle: const TextStyle(
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
             onLogin: Validation.login,

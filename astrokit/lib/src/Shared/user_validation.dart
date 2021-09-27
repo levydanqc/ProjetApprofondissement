@@ -1,39 +1,41 @@
 import 'package:flutter_login/flutter_login.dart';
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
+import 'file_manager.dart';
 
 class Validation {
   static Duration get loginTime => const Duration(milliseconds: 200);
 
-  static const users = {
-    'danlevy.ca@icloud.com':
-        'e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a',
-  };
-
-  static String hashPwd(LoginData loginData) {
-    List<int> bytes = utf8.encode(loginData.password);
+  static String hashPwd(String pwd) {
+    List<int> bytes = utf8.encode(pwd);
     Digest digest = sha256.convert(bytes);
     return digest.toString();
   }
 
   static Future<String?>? signup(LoginData loginData) {
     return Future.delayed(loginTime).then((_) {
-      return "SignUp";
+      File.read(loginData.name).then((value) {
+        if (value != null) {
+          return "Un compte est déjà relié à cet email.";
+        }
+      });
+
+      String pwd = hashPwd(loginData.password);
+      File.write(loginData.name, pwd);
+      return null;
     });
   }
 
-  static bool verifyPassword(LoginData loginData, String pwd) {
-    return users[loginData.name] == pwd;
-  }
-
   static Future<String?>? login(LoginData loginData) {
-    return Future.delayed(loginTime).then((_) {
-      String pwd = hashPwd(loginData);
-      bool hasMatch = verifyPassword(loginData, pwd);
-      if (hasMatch) {
-        return null;
+    return File.read(loginData.name).then((value) {
+      if (value == null) {
+        return "Aucun compte n'est relié à cet email.";
       }
-      return "L'adresse mail et le mot de passe ne correspondent pas.";
+      String pwd = hashPwd(loginData.password);
+      if (value != pwd) {
+        return "L'adresse mail et le mot de passe ne correspondent pas.";
+      }
+      return "Match";
     });
   }
 
@@ -45,9 +47,6 @@ class Validation {
         .hasMatch(email!)) {
       return "L'adresse email n'est pas valide.";
     }
-    if (!users.containsKey(email)) {
-      return "Aucun compte n'est relié à cet email.";
-    }
     return null;
   }
 
@@ -56,9 +55,9 @@ class Validation {
       return "Le mot de passe ne peut être vide.";
     }
     if (pwd!.length < 4) {
-      return "Le mot de passe doit contenir\nau minimum 4 caractères.";
+      return "Le mot de passe doit contenir au\nminimum 4 caractères.";
     }
-    if (RegExp(r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$")
+    if (!RegExp(r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$")
         .hasMatch(pwd)) {
       return "Le mot de passe doit contenir :\n- Une majuscule\n- Une minuscule\n- Un chiffre\n- Un caractère spécial\n- Au minimum 8 caractères";
     }
@@ -67,11 +66,10 @@ class Validation {
   }
 
   static Future<String?>? recoverPassword(String name) {
-    return Future.delayed(loginTime).then((_) {
-      if (!users.containsKey(name)) {
+    return File.read(name).then((value) {
+      if (value == null) {
         return "Aucun compte n'est relié à cet email.";
       }
-      return null;
     });
   }
 }
