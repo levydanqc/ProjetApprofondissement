@@ -22,6 +22,7 @@ class Validation {
 
       String pwd = hashPwd(loginData.password);
       File.write(loginData.name, pwd);
+
       return null;
     });
   }
@@ -35,7 +36,8 @@ class Validation {
       if (value != pwd) {
         return "L'adresse mail et le mot de passe ne correspondent pas.";
       }
-      return "Match";
+
+      return null;
     });
   }
 
@@ -47,6 +49,7 @@ class Validation {
         .hasMatch(email!)) {
       return "L'adresse email n'est pas valide.";
     }
+
     return null;
   }
 
@@ -70,6 +73,7 @@ class Validation {
       if (value == null) {
         return "Aucun compte n'est relié à cet email.";
       }
+      return null;
     });
   }
 }

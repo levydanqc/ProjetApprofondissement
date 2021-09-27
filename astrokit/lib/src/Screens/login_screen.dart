@@ -1,4 +1,6 @@
+import 'package:astrokit/src/Screens/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_login/flutter_login.dart';
 import '../const.dart' as env;
 
@@ -49,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
             logo: null,
             theme: LoginTheme(
               errorColor: Colors.redAccent.shade400,
-              switchAuthTextColor: Colors.white,
+              switchAuthTextColor: Colors.black,
               authButtonPadding: const EdgeInsets.symmetric(vertical: 10),
               pageColorDark: Colors.transparent,
               pageColorLight: Colors.transparent,
@@ -71,9 +73,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 elevation: 0,
                 margin: EdgeInsets.only(top: 30),
               ),
+              textFieldStyle: const TextStyle(color: Colors.white),
               inputTheme: const InputDecorationTheme(
-                labelStyle: TextStyle(color: Colors.white),
-                filled: true,
+                labelStyle:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                fillColor: Colors.white,
+                filled: false,
                 border: OutlineInputBorder(
                   borderSide: BorderSide(color: env.brown),
                   borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -89,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
             onSignup: Validation.signup,
             onSubmitAnimationCompleted: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => const LoginScreen(),
+                builder: (context) => Home(LoginScreen.routeName),
               ));
             },
             onRecoverPassword: Validation.recoverPassword,
