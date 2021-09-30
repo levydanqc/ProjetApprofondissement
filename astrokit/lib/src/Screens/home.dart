@@ -51,10 +51,6 @@ class _HomeState extends State<Home> {
               icon: const Icon(Icons.help_outline_outlined),
             ),
           ),
-          // child: GestureDetector(
-          //   onTap: () {},
-          //   child: const Icon(Icons.help_outline_outlined),
-          // )),
         ],
       ),
     );

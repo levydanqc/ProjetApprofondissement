@@ -1,30 +1,18 @@
-# astrokit
+# AstroKit
 
-A new Flutter project.
+Le kit parfait des astronomes amateurs.
 
-## Getting Started
+## Installation
 
-This project is a starting point for a Flutter application that follows the
-[simple app state management
-tutorial](https://flutter.dev/docs/development/data-and-backend/state-mgmt/simple).
+Telecharger le projet.
+`git clone git@gitlab.com:levydanqc/ProjetApprofondissement.git`
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Installer les packages.
+`flutter pub get`
 
-## Assets
+Lancer l'application.
+`flutter run`
 
-The `assets` directory houses images, fonts, and any other files you want to
-include with your application.
+## Langues actuellement supportées
 
-The `assets/images` directory contains [resolution-aware
-images](https://flutter.dev/docs/development/ui/assets-and-images#resolution-aware).
-
-## Localization
-
-This project generates localized messages based on arb files found in
-the `lib/src/localization` directory.
-
-To support additional languages, please visit the tutorial on
-[Internationalizing Flutter
-apps](https://flutter.dev/docs/development/accessibility-and-localization/internationalization)
+- Francais
