@@ -1,3 +1,4 @@
+import 'package:astrokit/src/Shared/action_button.dart';
 import 'package:flutter/material.dart';
 import 'package:another_flushbar/flushbar.dart';
 
@@ -30,26 +31,15 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: AppBar(
         title: const Center(child: Text("AstroKit")),
-        leading: GestureDetector(
-          onTap: () {},
-          child: const Icon(Icons.manage_accounts_outlined),
-        ),
-        actions: <Widget>[
+        leading: const ActionButton(icon: Icons.manage_accounts_outlined),
+        actions: const <Widget>[
           Padding(
-              padding: const EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: () {},
-                child: const Icon(Icons.search, size: 26.0),
-              )),
+            padding: EdgeInsets.only(right: 20.0),
+            child: ActionButton(icon: Icons.search),
+          ),
           Padding(
-            padding: const EdgeInsets.only(right: 20.0),
-            child: IconButton(
-              onPressed: () {},
-              hoverColor: Colors.white,
-              splashColor: Colors.white,
-              splashRadius: 20,
-              icon: const Icon(Icons.help_outline_outlined),
-            ),
+            padding: EdgeInsets.only(right: 20.0),
+            child: ActionButton(icon: Icons.help_outline_outlined),
           ),
         ],
       ),

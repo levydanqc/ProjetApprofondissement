@@ -15,7 +15,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   // TODO: Correct scrollable widget when keyboard
   @override
   Widget build(BuildContext context) {
@@ -24,6 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Stack(
+        alignment: Alignment.topCenter,
         children: <Widget>[
           Container(
             decoration: const BoxDecoration(
@@ -33,9 +33,11 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 50),
-            child: Image.asset("assets/images/logo.png"),
+          SafeArea(
+            child: FractionallySizedBox(
+              widthFactor: 1,
+              child: Image.asset("assets/images/logo.png"),
+            ),
           ),
           FlutterLogin(
             messages: loginMessages,
