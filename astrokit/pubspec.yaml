@@ -18,7 +18,8 @@ dependencies:
     sdk: flutter
   flutter_login: ^2.2.1
   flutter_secure_storage: ^4.2.1
-  password: ^1.0.0
+  http: ^0.13.4
+  path_provider: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -35,4 +36,3 @@ flutter:
   assets:
     # Add assets from the images directory to the application.
     - assets/images/
-    - assets/icons/

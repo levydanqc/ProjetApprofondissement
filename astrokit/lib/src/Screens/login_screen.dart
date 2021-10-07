@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_login/flutter_login.dart';
 import '../const.dart' as env;
 
-import '../Shared/user_validation.dart';
+import '../utils/user_validation.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

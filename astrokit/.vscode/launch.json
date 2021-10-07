@@ -5,15 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "astrokit",
+            "name": "Flutter",
+            "type": "dart",
             "request": "launch",
-            "type": "dart"
+            "program": "lib/main.dart"
         },
         {
-            "name": "astrokit (profile mode)",
-            "request": "launch",
+            "name": "astrokit",
             "type": "dart",
-            "flutterMode": "profile"
-        }
+            "request": "launch",
+            "program": "lib/main.dart",
+            "flutterMode": "debug",
+        },
     ]
 }
