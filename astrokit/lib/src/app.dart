@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'Screens/day_detail.dart';
 import 'Screens/login_screen.dart';
 import 'settings/settings_controller.dart';
 import 'settings/settings_view.dart';
@@ -59,6 +60,8 @@ class MyApp extends StatelessWidget {
                 switch (routeSettings.name) {
                   case SettingsView.routeName:
                     return SettingsView(controller: settingsController);
+                  case DayDetail.routeName:
+                    return DayDetail(dayData: routeSettings.arguments as Map);
                   case LoginScreen.routeName:
                   default:
                     return const LoginScreen();

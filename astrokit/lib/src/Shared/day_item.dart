@@ -1,31 +1,22 @@
+import 'package:astrokit/src/Screens/day_detail.dart';
+import 'package:astrokit/src/utils/capitalize.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 // ignore: must_be_immutable
-class ListItemDay extends StatelessWidget {
-  late String dayOfWeek;
-  final String strDate;
-  late DateTime date;
-  final String temp;
+class DayItem extends StatelessWidget {
   final Map day;
-  final List hourly;
-  final String city;
 
-  ListItemDay({
+  const DayItem({
     Key? key,
-    required this.strDate,
-    required this.temp,
     required this.day,
-    required this.hourly,
-    required this.city,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    date = DateTime.parse(strDate);
-    dayOfWeek = DateFormat('E').format(date);
-
+    DateTime date = DateTime.parse(day["valid_date"]);
+    // Intl.defaultLocale = "en_CA";
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
@@ -42,16 +33,11 @@ class ListItemDay extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            primary: Color(0xFF241771),
+            primary: const Color(0xFF241771),
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           ),
           onPressed: () {
-            Navigator.pushNamed(context, "/detail", arguments: {
-              "day": day,
-              "hourly": hourly,
-              "city": city,
-              "withHour": hourly.isNotEmpty,
-            });
+            Navigator.pushNamed(context, DayDetail.routeName, arguments: day);
           },
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,7 +48,7 @@ class ListItemDay extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                     child: Text(
-                      DateFormat("EEEE").format(date),
+                      DateFormat("EEEE").format(date).capitalize(),
                       style: TextStyle(color: Colors.grey[100], fontSize: 15),
                     ),
                   ),
@@ -72,18 +58,18 @@ class ListItemDay extends StatelessWidget {
                       children: [
                         const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Icon(CupertinoIcons.cloud_sun, size: 50),
+                          child: Icon(Icons.wb_sunny_outlined, size: 50),
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "${date.day} ${DateFormat('MMM').format(date)}",
+                              DateFormat('d MMM').format(date),
                               style: TextStyle(
                                   color: Colors.grey[100], fontSize: 30),
                             ),
                             Text(
-                              "temp °C",
+                              "${day["temp"].toString()} °C",
                               style: TextStyle(
                                   color: Colors.grey[300], fontSize: 20),
                             )
@@ -94,6 +80,7 @@ class ListItemDay extends StatelessWidget {
                   ),
                 ],
               ),
+              const Spacer(),
               const Icon(
                 Icons.keyboard_arrow_right,
                 size: 30,

@@ -1,4 +1,3 @@
-import '../shared/CustomErrors.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:io';
@@ -34,11 +33,8 @@ class Forecast {
       // Read the file
       final contents = await file.readAsString();
       return contents;
-    } on FileSystemException {
-      /// Throw an error of type [FileNotFound] if the file wasn't found.
-      throw FileNotFound();
     } catch (e) {
-      /// Return 0 if an error occured.
+      // Return 0 if an error occured.
       return "0";
     }
   }
@@ -51,11 +47,11 @@ class Forecast {
 
     // Get forecast for the next 16 days daily.
     var response = await http.get(
-      Uri.parse(
-          'https://rapidapi.p.rapidapi.com/forecast/daily?lon=$lon&lat=$lat'),
+      Uri.parse('https://weatherbit-v1-mashape.p.rapidapi.com/forecast/daily'
+          '?lon=$lon&lat=$lat'),
       headers: {
         'x-rapidapi-host': 'weatherbit-v1-mashape.p.rapidapi.com',
-        'x-rapidapi-key': env.API_KEY,
+        'x-rapidapi-key': env.WEATHERBIT_API,
       },
     );
 
@@ -70,19 +66,23 @@ class Forecast {
     return data;
   }
 
-  static Future<Map?> loadForecast(double lat, double lon) async {
-    try {
-      Map data = jsonDecode(await _readFile());
+  static Future<Map> loadForecast(double lat, double lon) async {
+    Map data;
+    final path = await _localPath;
+
+    if (File('$path/forecast.json').existsSync()) {
+      data = jsonDecode(await _readFile());
 
       // Minimum of 24h before updating value
-      if (data["lastUpdate"] + 86400000 >
-          DateTime.now().millisecondsSinceEpoch) {
-        data = await getForecast(lat, lon);
+      if (data["creation"] != "File Creation." &&
+          data["lastUpdate"] + 86400000 >
+              DateTime.now().millisecondsSinceEpoch) {
+        return data;
       }
-
-      return data;
-    } catch (e) {
-      return null;
     }
+
+    data = await getForecast(lat, lon);
+
+    return data;
   }
 }

@@ -1,1 +1,0 @@
-class FileNotFound implements Exception {}

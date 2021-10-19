@@ -14,12 +14,22 @@ dependencies:
   crypto: ^3.0.1
   flutter:
     sdk: flutter
+  flutter_google_places: ^0.3.0
+  flutter_launcher_icons: ^0.9.2
   flutter_localizations:
     sdk: flutter
   flutter_login: ^2.2.1
   flutter_secure_storage: ^4.2.1
   http: ^0.13.4
+  intl: ^0.17.0
   path_provider: ^2.0.5
+
+flutter_icons:
+  ios: true
+  android: true
+  image_path: assets/launcher_icons/launch_icon.png
+  adaptative_icon_background: #ffffff
+  adaptative_icon_foreground: assets/launcher_icons/foreground.png
 
 dev_dependencies:
   flutter_test:
