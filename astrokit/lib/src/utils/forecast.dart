@@ -1,46 +1,13 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:io';
-import 'package:path_provider/path_provider.dart';
 import '../.env.dart' as env;
+import './file_manager.dart';
 
 class Forecast {
-  /// Finding path to the documents directory
-  static Future<String> get _localPath async {
-    final directory = await getApplicationDocumentsDirectory();
-
-    return directory.path;
-  }
-
-  /// Returning the file
-  static Future<File> get _localFile async {
-    final path = await _localPath;
-    return File('$path/forecast.json');
-  }
-
-  /// Writing to the file
-  static Future<File> _writeToFile(String data) async {
-    final file = await _localFile;
-
-    return file.writeAsString(data);
-  }
-
-  /// Reading the file
-  static Future<String> _readFile() async {
-    try {
-      final file = await _localFile;
-
-      // Read the file
-      final contents = await file.readAsString();
-      return contents;
-    } catch (e) {
-      // Return 0 if an error occured.
-      return "0";
-    }
-  }
+  static const String fileName = "forecast";
 
   /// Getting forecast data from API.
-  ///
   /// Storing forecast data inside [data].
   static Future<Map> getForecast(double lat, double lon) async {
     Map data = {};
@@ -61,17 +28,17 @@ class Forecast {
       int now = DateTime.now().millisecondsSinceEpoch;
       data['lastUpdate'] = now;
 
-      _writeToFile(jsonEncode(data));
+      writeToFile(jsonEncode(data), fileName);
     }
     return data;
   }
 
   static Future<Map> loadForecast(double lat, double lon) async {
     Map data;
-    final path = await _localPath;
+    final path = await localPath;
 
     if (File('$path/forecast.json').existsSync()) {
-      data = jsonDecode(await _readFile());
+      data = jsonDecode(await readFile(fileName));
 
       // Minimum of 24h before updating value
       if (data["creation"] != "File Creation." &&
@@ -81,8 +48,6 @@ class Forecast {
       }
     }
 
-    data = await getForecast(lat, lon);
-
-    return data;
+    return getForecast(lat, lon);
   }
 }

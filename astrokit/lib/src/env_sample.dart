@@ -1,1 +1,2 @@
-const apiKey = "YOUR_API_KEY";
+const WEATHERBIT_API = "";
+const GOOGLE_API = "";

@@ -1,7 +1,7 @@
 import 'package:flutter_login/flutter_login.dart';
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
-import 'file_manager.dart';
+import 'credentials_manager.dart';
 
 class Validation {
   static Duration get loginTime => const Duration(milliseconds: 200);

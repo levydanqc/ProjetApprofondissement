@@ -1,18 +1,35 @@
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
 
-class File {
-  static String? value;
-  static String? key;
+String fileName = "";
 
-  static const storage = FlutterSecureStorage();
-  static const options =
-      IOSOptions(accessibility: IOSAccessibility.first_unlock_this_device);
+Future<String> get localPath async {
+  final directory = await getApplicationDocumentsDirectory();
 
-  static void write(String key, String value) async {
-    return await storage.write(key: key, value: value, iOptions: options);
-  }
+  return directory.path;
+}
 
-  static Future read(String key) async {
-    return await storage.read(key: key, iOptions: options);
+Future<File> get localFile async {
+  final path = await localPath;
+  return File('$path/$fileName.json');
+}
+
+Future<File> writeToFile(String data, String pFileName) async {
+  fileName = pFileName;
+  final file = await localFile;
+
+  return file.writeAsString(data);
+}
+
+Future<String> readFile(String pFileName) async {
+  fileName = pFileName;
+  try {
+    final file = await localFile;
+
+    final contents = await file.readAsString();
+    return contents;
+  } catch (e) {
+    /// Return 0 if an error occured.
+    return "0";
   }
 }

@@ -42,7 +42,6 @@ class DayDetail extends StatelessWidget {
           ),
           Flexible(
             child: GridView.count(
-              childAspectRatio: 0.6,
               crossAxisCount: 3,
               mainAxisSpacing: 0,
               crossAxisSpacing: 0,

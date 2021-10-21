@@ -1,10 +1,11 @@
+import 'package:astrokit/src/Screens/home.dart';
+import 'package:astrokit/src/Screens/user_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'Screens/day_detail.dart';
 import 'Screens/login_screen.dart';
 import 'settings/settings_controller.dart';
-import 'settings/settings_view.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -58,10 +59,12 @@ class MyApp extends StatelessWidget {
               settings: routeSettings,
               builder: (BuildContext context) {
                 switch (routeSettings.name) {
-                  case SettingsView.routeName:
-                    return SettingsView(controller: settingsController);
+                  case UserSettings.routeName:
+                    return const UserSettings();
                   case DayDetail.routeName:
                     return DayDetail(dayData: routeSettings.arguments as Map);
+                  case Home.routeName:
+                    return Home(routeSettings.name);
                   case LoginScreen.routeName:
                   default:
                     return const LoginScreen();
