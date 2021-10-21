@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:astrokit/src/Shared/app_bar.dart';
 import 'package:astrokit/src/Shared/error_screen.dart';
@@ -16,7 +17,9 @@ import 'package:geocoding/geocoding.dart';
 import 'package:uuid/uuid.dart';
 
 class UserSettings extends StatefulWidget {
-  const UserSettings({Key? key}) : super(key: key);
+  final Map args;
+
+  const UserSettings({required this.args, Key? key}) : super(key: key);
 
   static const routeName = "/settings";
   static const fileName = "locations";
@@ -27,27 +30,20 @@ class UserSettings extends StatefulWidget {
 
 class _UserSettingsState extends State<UserSettings> {
   final GoogleMapsPlaces _places = GoogleMapsPlaces(apiKey: env.GOOGLE_API);
-  late Future<List> _futureLocations;
-  List _locations = [];
+  late final Future<List> _futureLocations;
+  late final List _locations;
   final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    _futureLocations = getLocations();
+    _locations = widget.args["_locations"];
+    _futureLocations = widget.args["_futureLocations"];
   }
 
-  Future<List> getLocations() async {
-    return readFile(UserSettings.fileName).then((json) {
-      if (json != "0") {
-        var data = jsonDecode(json);
-        _locations =
-            data.map((location) => Position.fromJson(location)).toList();
-        return data;
-      } else {
-        return [];
-      }
-    });
+  double roundDouble(double value, int places) {
+    num mod = pow(10.0, places);
+    return ((value * mod).round().toDouble() / mod);
   }
 
   @override
@@ -107,8 +103,8 @@ class _UserSettingsState extends State<UserSettings> {
       List<Placemark> placemarks = await placemarkFromCoordinates(lat, lon);
       if (placemarks.isNotEmpty) {
         Position selected = Position(
-          latitude: lat,
-          longitude: lon,
+          latitude: roundDouble(lat, 2),
+          longitude: roundDouble(lon, 2),
           streetNumber: placemarks[0].subThoroughfare!,
           street: placemarks[0].thoroughfare!,
           postal: placemarks[0].postalCode!,

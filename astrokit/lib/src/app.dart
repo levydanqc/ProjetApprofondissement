@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
               builder: (BuildContext context) {
                 switch (routeSettings.name) {
                   case UserSettings.routeName:
-                    return const UserSettings();
+                    return UserSettings(args: routeSettings.arguments as Map);
                   case DayDetail.routeName:
                     return DayDetail(dayData: routeSettings.arguments as Map);
                   case Home.routeName:

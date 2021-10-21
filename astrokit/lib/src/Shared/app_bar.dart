@@ -2,14 +2,19 @@ import 'package:astrokit/src/Screens/user_settings.dart';
 import 'package:astrokit/src/Shared/action_button.dart';
 import 'package:flutter/material.dart';
 
-PreferredSizeWidget header({bool withLeading = true, required context}) {
+PreferredSizeWidget header({
+  required context,
+  bool withLeading = true,
+  Object? args,
+}) {
   return AppBar(
     title: const Center(child: Text("AstroKit")),
     leading: withLeading
         ? ActionButton(
             icon: Icons.manage_accounts_outlined,
             click: () {
-              Navigator.pushNamed(context, UserSettings.routeName);
+              Navigator.pushNamed(context, UserSettings.routeName,
+                  arguments: args);
             })
         : null,
     actions: <Widget>[

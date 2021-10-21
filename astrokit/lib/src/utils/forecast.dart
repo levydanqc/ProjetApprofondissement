@@ -41,7 +41,9 @@ class Forecast {
       data = jsonDecode(await readFile(fileName));
 
       // Minimum of 24h before updating value
-      if (data["creation"] != "File Creation." &&
+      if (data['lat'] == lat &&
+          data['lon'] == lon &&
+          data["creation"] != "File Creation." &&
           data["lastUpdate"] + 86400000 >
               DateTime.now().millisecondsSinceEpoch) {
         return data;
