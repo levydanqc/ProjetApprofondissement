@@ -6,7 +6,7 @@ class Position {
   final String country;
   final String state;
   final String city;
-  final String postal;
+  final String postalCode;
   String creation = DateTime.now().toString();
 
   Position(
@@ -17,10 +17,10 @@ class Position {
       required this.country,
       required this.state,
       required this.city,
-      required this.postal});
+      required this.postalCode});
 
   Position.wthDtm(this.latitude, this.longitude, this.street, this.country,
-      this.state, this.city, this.postal, this.creation, this.streetNumber);
+      this.state, this.city, this.postalCode, this.creation, this.streetNumber);
 
   factory Position.fromJson(Map<String, dynamic> json) {
     return Position.wthDtm(
@@ -30,14 +30,14 @@ class Position {
         json["country"],
         json["state"],
         json["city"],
-        json["postal"],
+        json["postalCode"],
         json["creation"],
         json["streetNumber"]);
   }
 
   @override
   String toString() {
-    return "$streetNumber $street, $postal, $city, $state, $country";
+    return "$streetNumber $street, $postalCode, $city, $state, $country";
   }
 
   Map<String, dynamic> toJson() => {
@@ -48,7 +48,7 @@ class Position {
         "country": country,
         "state": state,
         "city": city,
-        "postal": postal,
+        "postalCode": postalCode,
         "creation": creation,
       };
 

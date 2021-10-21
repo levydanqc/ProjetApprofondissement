@@ -49,7 +49,7 @@ class _UserSettingsState extends State<UserSettings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: header(withLeading: false, context: context),
+      appBar: header(withLeading: false, title: "Endroits", context: context),
       body: Builder(builder: (context) {
         return Column(
           children: [
@@ -107,7 +107,7 @@ class _UserSettingsState extends State<UserSettings> {
           longitude: roundDouble(lon, 2),
           streetNumber: placemarks[0].subThoroughfare!,
           street: placemarks[0].thoroughfare!,
-          postal: placemarks[0].postalCode!,
+          postalCode: placemarks[0].postalCode!,
           country: placemarks[0].isoCountryCode!,
           state: placemarks[0].administrativeArea!,
           city: placemarks[0].locality!,

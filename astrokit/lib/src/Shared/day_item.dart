@@ -7,15 +7,18 @@ import 'package:intl/intl.dart';
 // ignore: must_be_immutable
 class DayItem extends StatelessWidget {
   final Map day;
+  final String postalCode;
 
   const DayItem({
     Key? key,
+    required this.postalCode,
     required this.day,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     DateTime date = DateTime.parse(day["valid_date"]);
+    day["postalCode"] = postalCode;
     // Intl.defaultLocale = "en_CA";
     return Container(
       decoration: BoxDecoration(

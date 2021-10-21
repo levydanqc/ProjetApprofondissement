@@ -68,6 +68,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: header(
         context: context,
+        title: _locations[i].postalCode,
         args: {"_futureLocations": _futureLocations, "_locations": _locations},
       ),
       // TODO: Check internet connection
@@ -122,6 +123,7 @@ class _HomeState extends State<Home> {
 
         return DayItem(
           day: snapshot.data!["data"][index],
+          postalCode: _locations[i].postalCode,
         );
       },
     );

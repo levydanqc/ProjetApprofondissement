@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 
 PreferredSizeWidget header({
   required context,
+  required title,
   bool withLeading = true,
   Object? args,
 }) {
   return AppBar(
-    title: const Center(child: Text("AstroKit")),
+    title: Center(
+      child: Text(title),
+    ),
     leading: withLeading
         ? ActionButton(
             icon: Icons.manage_accounts_outlined,
