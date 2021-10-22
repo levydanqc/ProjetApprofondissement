@@ -56,7 +56,9 @@ class Position {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other.runtimeType != runtimeType) return false;
-    return other is Position && creation == other.creation;
+    return other is Position &&
+        latitude == other.latitude &&
+        longitude == other.longitude;
   }
 
   @override

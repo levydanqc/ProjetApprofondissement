@@ -182,7 +182,7 @@
                                         <menuItem title="Correct Spelling Automatically" id="78Y-hA-62v">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="toggleAutomaticSpellingCorrection:" target="-1" id="2lM-Qi-WAP"/>
+                                                <action selector="toggleAutomaticSpellicatalogorrection:" target="-1" id="2lM-Qi-WAP"/>
                                             </connections>
                                         </menuItem>
                                     </items>

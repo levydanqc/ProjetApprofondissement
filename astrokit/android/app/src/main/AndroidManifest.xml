@@ -2,7 +2,8 @@
     package="com.example.astrokit">
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-   <application
+<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+<application
         android:label="astrokit"
         android:icon="@mipmap/ic_launcher">
         <activity

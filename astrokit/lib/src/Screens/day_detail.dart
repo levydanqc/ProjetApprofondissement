@@ -19,8 +19,7 @@ class DayDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: header(
-          withLeading: false, title: dayData["postalCode"], context: context),
+      appBar: header(title: dayData["postalCode"], context: context),
       body: Column(
         children: [
           Align(

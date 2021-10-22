@@ -1,12 +1,14 @@
 import 'dart:convert';
-import 'dart:math';
 
+import 'package:astrokit/src/Screens/home.dart';
+import 'package:astrokit/src/Shared/action_button.dart';
 import 'package:astrokit/src/Shared/app_bar.dart';
 import 'package:astrokit/src/Shared/error_screen.dart';
 import 'package:astrokit/src/Shared/progress_indicator.dart';
 import 'package:astrokit/src/Shared/snack_bar.dart';
 import 'package:astrokit/src/utils/file_manager.dart';
 import 'package:astrokit/src/utils/position.dart';
+import 'package:astrokit/src/utils/round.dart';
 import 'package:flutter/material.dart';
 import '../.env.dart' as env;
 
@@ -30,26 +32,26 @@ class UserSettings extends StatefulWidget {
 
 class _UserSettingsState extends State<UserSettings> {
   final GoogleMapsPlaces _places = GoogleMapsPlaces(apiKey: env.GOOGLE_API);
-  late final Future<List> _futureLocations;
-  late final List _locations;
+  late Future<List> _futureLocations;
   final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    _locations = widget.args["_locations"];
     _futureLocations = widget.args["_futureLocations"];
-  }
-
-  double roundDouble(double value, int places) {
-    num mod = pow(10.0, places);
-    return ((value * mod).round().toDouble() / mod);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: header(withLeading: false, title: "Endroits", context: context),
+      appBar: header(
+          leading: ActionButton(
+              icon: Icons.arrow_back_ios_new_outlined,
+              click: () {
+                Navigator.pushNamed(context, Home.routeName);
+              }),
+          title: "Endroits",
+          context: context),
       body: Builder(builder: (context) {
         return Column(
           children: [
@@ -78,7 +80,7 @@ class _UserSettingsState extends State<UserSettings> {
               future: _futureLocations,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  return locationList();
+                  return locationList(snapshot.data!);
                 } else if (snapshot.hasError) {
                   return errorScreen(context, UserSettings.routeName);
                 }
@@ -145,12 +147,13 @@ class _UserSettingsState extends State<UserSettings> {
                       ),
                       ElevatedButton(
                         child: const Text("Confirmer"),
-                        onPressed: () {
+                        onPressed: () async {
+                          List locations = await _futureLocations;
                           setState(() {
-                            if (!_locations.contains(selected)) {
-                              _locations.add(selected);
-                              writeToFile(jsonEncode(_locations),
-                                  UserSettings.fileName);
+                            if (!locations.contains(selected)) {
+                              locations.add(selected);
+                              writeToFile(
+                                  jsonEncode(locations), UserSettings.fileName);
                             } else {
                               snackBar(
                                   title: "Adresse déjà ajoutée.",
@@ -176,33 +179,47 @@ class _UserSettingsState extends State<UserSettings> {
     snackBar(title: "Erreur", message: response.errorMessage!).show(context);
   }
 
-  Widget locationList() => Flexible(
+  Widget locationList(List data) => Flexible(
         child: ListView.builder(
             controller: _scrollController,
-            itemCount: _locations.length,
+            itemCount: data.length,
             itemBuilder: (BuildContext context, int i) {
-              _locations.sort((a, b) => a.creation.compareTo(b.creation));
+              if (data.length > 1) {
+                data.sort((a, b) {
+                  return a.creation.compareTo(b.creation);
+                });
+              }
               return Dismissible(
-                child: ListTile(
-                  title: Text(_locations[i].toString()),
+                child: Container(
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  child: ListTile(
+                    title: Text(data[i].toString()),
+                    leading: const Icon(Icons.location_on_outlined),
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(color: Colors.black),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
                 ),
                 key: UniqueKey(),
                 background: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.red[900],
+                      borderRadius: const BorderRadius.all(Radius.circular(5))),
                   alignment: AlignmentDirectional.centerEnd,
-                  color: Colors.red[900],
+                  margin: const EdgeInsets.symmetric(vertical: 10),
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   child: const Icon(Icons.delete_outline_rounded,
                       color: Colors.white),
                 ),
                 direction: DismissDirection.endToStart,
                 onDismissed: (direction) {
                   Position? deleted;
-                  if (_locations.isNotEmpty) {
+                  if (data.length > 1) {
                     setState(() {
-                      deleted = _locations.removeAt(i);
-                      writeToFile(
-                          jsonEncode(_locations), UserSettings.fileName);
+                      deleted = data.removeAt(i);
+                      writeToFile(jsonEncode(data), UserSettings.fileName);
                     });
                     snackBar(
                       title: "Supprimé.",
@@ -211,9 +228,9 @@ class _UserSettingsState extends State<UserSettings> {
                         label: "Annuler",
                         onPressed: () => setState(
                           () {
-                            _locations.add(deleted!);
+                            data.add(deleted!);
                             writeToFile(
-                                jsonEncode(_locations), UserSettings.fileName);
+                                jsonEncode(data), UserSettings.fileName);
                           },
                         ),
                       ),
@@ -224,6 +241,9 @@ class _UserSettingsState extends State<UserSettings> {
                       message:
                           "Il n'est pas possible de supprimer la dernière adresse.\nAjoutez une autre adresse avant de recommencer.",
                     ).show(context);
+                    setState(() {
+                      data = data;
+                    });
                   }
                 },
               );

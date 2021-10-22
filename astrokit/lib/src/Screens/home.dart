@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:astrokit/src/Screens/user_settings.dart';
+import 'package:astrokit/src/Shared/action_button.dart';
 import 'package:astrokit/src/Shared/app_bar.dart';
 import 'package:astrokit/src/Shared/error_screen.dart';
 import 'package:astrokit/src/Shared/list_header.dart';
@@ -9,6 +10,7 @@ import 'package:astrokit/src/Shared/progress_indicator.dart';
 import 'package:astrokit/src/Shared/snack_bar.dart';
 import 'package:astrokit/src/utils/file_manager.dart';
 import 'package:astrokit/src/utils/forecast.dart';
+import 'package:astrokit/src/utils/location.dart';
 import 'package:astrokit/src/utils/position.dart';
 import 'package:flutter/material.dart';
 
@@ -22,95 +24,98 @@ class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
+// TODO : Add floating Go to top button
 
 class _HomeState extends State<Home> {
   final ScrollController _scrollController = ScrollController();
-  late Future<Map> data;
+  int indice = 0;
+  late Future<Map> _futureData;
   late Future<List> _futureLocations;
-  List _locations = [];
-  int i = 0;
-
-  // TODO : Add floating Go to top button
-
-  Future<Map> getForecast(Position _location) async {
-    return Forecast.loadForecast(_location.latitude, _location.longitude).then(
-      (value) => value,
-    );
-  }
 
   @override
   void initState() {
-    super.initState();
     if (widget.lastPage == "/login_screen") {
       WidgetsBinding.instance!.addPostFrameCallback((_) =>
           snackBar(title: "Réussi", message: "Connexion réussie...")
               .show(context));
     }
     _futureLocations = getLocations();
-    data = getForecast(_locations[i]);
+    _futureData = getForecast();
+    super.initState();
+  }
+
+  Future<Map> getForecast() async {
+    List location = await _futureLocations;
+    return Forecast.loadForecast(
+            location[indice].latitude, location[indice].longitude)
+        .then(
+      (value) => value,
+    );
   }
 
   Future<List> getLocations() async {
-    return readFile(UserSettings.fileName).then((locationJson) {
-      if (locationJson != "0") {
-        List list = jsonDecode(locationJson);
-        _locations =
-            list.map((location) => Position.fromJson(location)).toList();
+    return readFile(UserSettings.fileName).then((stringJson) {
+      if (stringJson != "0") {
+        List list = jsonDecode(stringJson)
+            .map((location) => Position.fromJson(location))
+            .toList();
         return list;
-      } else {
-        return [];
       }
+      return [];
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: header(
-        context: context,
-        title: _locations[i].postalCode,
-        args: {"_futureLocations": _futureLocations, "_locations": _locations},
-      ),
-      // TODO: Check internet connection
-      body: GestureDetector(
-        onHorizontalDragEnd: (details) {
-          if (details.primaryVelocity! > 0) {
-            setState(() {
-              i = i > 0 ? i - 1 : _locations.length - 1;
-            });
-          } else if ((details.primaryVelocity! < 0)) {
-            setState(() {
-              i = i < _locations.length - 1 ? i + 1 : 0;
-            });
+    return FutureBuilder(
+        future: Future.wait([_futureLocations, _futureData]),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            List? data = snapshot.data as List?;
+            return Scaffold(
+              appBar: header(
+                context: context,
+                title: data![0].isNotEmpty
+                    ? data[0][indice].postalCode
+                    : "AstroKit",
+                leading: ActionButton(
+                    icon: Icons.manage_accounts_outlined,
+                    click: () {
+                      Navigator.pushNamed(context, UserSettings.routeName,
+                          arguments: {"_futureLocations": _futureLocations});
+                    }),
+              ),
+              // TODO: Check internet connection
+              body: GestureDetector(
+                onHorizontalDragEnd: (details) async {
+                  if (details.primaryVelocity! > 0) {
+                    setState(() {
+                      indice = indice > 0 ? indice - 1 : data[0].length - 1;
+                    });
+                  } else if ((details.primaryVelocity! < 0)) {
+                    setState(() {
+                      indice = indice < data[0].length - 1 ? indice + 1 : 0;
+                    });
+                  }
+                  setState(() {
+                    _futureData = getForecast();
+                  });
+                },
+                child: listDay(data),
+              ),
+            );
+          } else if (snapshot.hasError) {
+            return errorScreen(context, Home.routeName);
           }
-          setState(() {
-            data = getForecast(_locations[i]);
-          });
-        },
-        child: FutureBuilder<Map>(
-          future: data,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return listDay(snapshot);
-            } else if (snapshot.hasError) {
-              return errorScreen(context, Home.routeName);
-            }
-
-            // TODO: use flutter_spinkit --> SpinKitChasingDots
-            return progressIndicator();
-          },
-        ),
-      ),
-    );
+          return progressIndicator();
+        });
   }
 
   ListView listDay(snapshot) {
     return ListView.builder(
       controller: _scrollController,
-      itemCount: snapshot.data!["data"].length,
+      itemCount: snapshot[1]["data"].length,
       itemBuilder: (BuildContext context, int index) {
-        // Logic for displaying the right element at the right
-        // place in the list
         if (index == 0) {
           return const ListHeader("Tonight");
         } else if (index == 2) {
@@ -122,8 +127,8 @@ class _HomeState extends State<Home> {
         }
 
         return DayItem(
-          day: snapshot.data!["data"][index],
-          postalCode: _locations[i].postalCode,
+          day: snapshot[1]["data"][index],
+          postalCode: snapshot[0][indice].postalCode,
         );
       },
     );

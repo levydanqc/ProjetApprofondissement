@@ -1,7 +1,9 @@
 import 'package:astrokit/src/Screens/home.dart';
+import 'package:astrokit/src/utils/location.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_login/flutter_login.dart';
+import 'package:location/location.dart';
 import '../const.dart' as env;
 
 import '../utils/user_validation.dart';
@@ -15,6 +17,13 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // getPermissions(Location());
+    getLocation();
+  }
+
   // TODO: Correct scrollable widget when keyboard
   @override
   Widget build(BuildContext context) {
