@@ -1,4 +1,3 @@
-import 'package:astrokit/src/Screens/home.dart';
 import 'package:flutter/material.dart';
 
 Widget errorScreen(BuildContext context, String routeName) {
