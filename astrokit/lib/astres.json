@@ -1,12 +1,14 @@
 [
     {
         "nom": "Nébuleuse du Crabe",
-        "astre": "nb",
+        "astre": "nbsn",
         "catalog": "NGC 1952 / M1",
-        "distance": "6200 a.l.",
+        "distance": "6500 ± 1600 a.l.",
         "apparentSize": "6' x 4'",
+        "apparentMag": "8.4",
         "constellation": "Taureau",
-        "description": ""
+        "type": "Type II",
+        "description": "La nébuleuse du Crabe est un rémanent de supernova résultant de l'explosion d'une étoile massive en supernova historique (SN 1054) observée par un astronome chinois durant la période de la dynastie Song de juillet 1054 à avril 1056. La nébuleuse a été observée pour la première fois en 1731 par John Bevis, puis en 1758 par Charles Messier qui en fait le premier objet de son catalogue (catalogue Messier)."
     },
     {
         "nom": "Galaxie d'Andromède",
@@ -16,11 +18,13 @@
         "apparentSize": "190' x 60'",
         "apparentMag": "3.4",
         "constellation": "Andromède",
-        "description": ""
+        "type":"Galaxie spirale",
+        "nbStars": "1 G",
+        "description": "Appelée grande nébuleuse d’Andromède jusqu'à ce que sa vraie nature ait été reconnue dans les années 1920, la galaxie d'Andromède est la galaxie spirale la plus proche de la Voie lactée (toutes classes confondues, la galaxie la plus proche est la naine du Grand Chien) et le plus grand membre du Groupe local d'une soixantaine de galaxies individuelles dont toutes deux font partie. D'un diamètre d'environ 220 000 années-lumière, elle contiendrait environ mille milliards d'étoiles11, deux à cinq fois plus que notre galaxie."
     },
     {
-        "nom": "",
-        "astre": "",
+        "nom": "Jupiter",
+        "astre": "pln",
         "catalog": "",
         "distance": "",
         "apparentSize": "",
@@ -29,8 +33,8 @@
         "description": ""
     },
     {
-        "nom": "",
-        "astre": "",
+        "nom": "Saturne",
+        "astre": "pln",
         "catalog": "",
         "distance": "",
         "apparentSize": "",
@@ -39,8 +43,8 @@
         "description": ""
     },
     {
-        "nom": "",
-        "astre": "",
+        "nom": "Mars",
+        "astre": "pln",
         "catalog": "",
         "distance": "",
         "apparentSize": "",
@@ -49,8 +53,8 @@
         "description": ""
     },
     {
-        "nom": "",
-        "astre": "",
+        "nom": "Venus",
+        "astre": "pln",
         "catalog": "",
         "distance": "",
         "apparentSize": "",
@@ -59,8 +63,8 @@
         "description": ""
     },
     {
-        "nom": "",
-        "astre": "",
+        "nom": "Neptune",
+        "astre": "pln",
         "catalog": "",
         "distance": "",
         "apparentSize": "",
@@ -69,8 +73,8 @@
         "description": ""
     },
     {
-        "nom": "",
-        "astre": "",
+        "nom": "Mercure",
+        "astre": "pln",
         "catalog": "",
         "distance": "",
         "apparentSize": "",
@@ -79,9 +83,219 @@
         "description": ""
     },
     {
-        "nom": "",
-        "astre": "",
+        "nom": "Uranus",
+        "astre": "pln",
         "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Lune",
+        "astre": "stl",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Io",
+        "astre": "stl",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Europe",
+        "astre": "stl",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Ganymède",
+        "astre": "stl",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Titan",
+        "astre": "stl",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Callisto",
+        "astre": "stl",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Triton",
+        "astre": "stl",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Sirius",
+        "astre": "str",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Arcturus",
+        "astre": "str",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Véga",
+        "astre": "str",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Rigel",
+        "astre": "str",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Bételgeuse",
+        "astre": "str",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Capella",
+        "astre": "str",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Antares",
+        "astre": "str",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Aldébaran",
+        "astre": "str",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Nébuleuse du fantôme de Jupiter",
+        "astre": "nbpln",
+        "catalog": "NGC 3242",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Nébuleuse de la Lyre",
+        "astre": "nbpln",
+        "catalog": "NGC 6720 / M57",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Nébuleuse de l'Oeil de Chat",
+        "astre": "nbpln",
+        "catalog": "NGC 6543",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Nébuleuse de l'Insecte",
+        "astre": "nbpln",
+        "catalog": "",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Nébuleuse de l'Insecte",
+        "astre": "nbpln",
+        "catalog": "NGC 6302",
+        "distance": "",
+        "apparentSize": "",
+        "apparentMag": "",
+        "constellation": "",
+        "description": ""
+    },
+    {
+        "nom": "Nébuleuse du Balai de Sorcière",
+        "astre": "nbsn",
+        "catalog": "NGC 6960",
         "distance": "",
         "apparentSize": "",
         "apparentMag": "",

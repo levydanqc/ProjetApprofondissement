@@ -9,8 +9,8 @@ import 'package:astrokit/src/Shared/day_item.dart';
 import 'package:astrokit/src/Shared/progress_indicator.dart';
 import 'package:astrokit/src/Shared/snack_bar.dart';
 import 'package:astrokit/src/utils/file_manager.dart';
-import 'package:astrokit/src/utils/forecast.dart';
-import 'package:astrokit/src/utils/position.dart';
+import 'package:astrokit/src/class/forecast.dart';
+import 'package:astrokit/src/class/position.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable

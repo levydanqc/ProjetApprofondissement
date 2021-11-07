@@ -1,11 +1,11 @@
 import 'package:astrokit/src/Screens/home.dart';
 import 'package:astrokit/src/utils/location.dart';
+import 'package:astrokit/src/utils/user_validation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_login/flutter_login.dart';
 import '../const.dart' as env;
 
-import '../utils/user_validation.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -89,16 +89,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 color: Colors.white,
               ),
             ),
-            onLogin: Validation.login,
-            userValidator: Validation.validateUser,
-            passwordValidator: Validation.validatePwd,
-            onSignup: Validation.signup,
+            onLogin: login,
+            userValidator: validateUser,
+            passwordValidator: validatePwd,
+            onSignup: signup,
             onSubmitAnimationCompleted: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
                 builder: (context) => Home(LoginScreen.routeName),
               ));
             },
-            onRecoverPassword: Validation.recoverPassword,
+            onRecoverPassword: recoverPassword,
           )
         ],
       ),

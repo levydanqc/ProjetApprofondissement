@@ -7,7 +7,7 @@ import 'package:astrokit/src/Shared/error_screen.dart';
 import 'package:astrokit/src/Shared/progress_indicator.dart';
 import 'package:astrokit/src/Shared/snack_bar.dart';
 import 'package:astrokit/src/utils/file_manager.dart';
-import 'package:astrokit/src/utils/position.dart';
+import 'package:astrokit/src/class/position.dart';
 import 'package:astrokit/src/utils/round.dart';
 import 'package:flutter/material.dart';
 import '../.env.dart' as env;

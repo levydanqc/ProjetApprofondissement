@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:io';
 import '../.env.dart' as env;
-import './file_manager.dart';
+import '../utils/file_manager.dart';
 
 class Forecast {
   static const String fileName = "forecast";
