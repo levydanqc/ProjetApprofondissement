@@ -7,101 +7,117 @@ part of 'astres.dart';
 // **************************************************************************
 
 Nebulea _$NebuleaFromJson(Map<String, dynamic> json) => Nebulea(
+      distance: json['distance'] as String,
+      apparentSize: json['taille app.'] as String,
+      apparentMag: json['magnitude app.'] as String,
+      constellation: json['constellation'] as String,
+      description: json['description'] as String,
+      nom: json['nom'] as String,
+      category: json['category'] as String,
       type: json['type'] as String,
-      distance: json['distance'],
-      appSize: json['appSize'],
-      appMag: json['appMag'],
-      constellation: json['constellation'],
-      description: json['description'],
     );
 
 Map<String, dynamic> _$NebuleaToJson(Nebulea instance) => <String, dynamic>{
       'distance': instance.distance,
-      'appSize': instance.appSize,
-      'appMag': instance.appMag,
+      'taille app.': instance.apparentSize,
+      'magnitude app.': instance.apparentMag,
       'constellation': instance.constellation,
       'description': instance.description,
+      'nom': instance.nom,
+      'category': instance.category,
       'type': instance.type,
     };
 
 Galaxy _$GalaxyFromJson(Map<String, dynamic> json) => Galaxy(
+      distance: json['distance'] as String,
+      apparentSize: json['taille app.'] as String,
+      apparentMag: json['magnitude app.'] as String,
+      constellation: json['constellation'] as String,
+      description: json['description'] as String,
+      nom: json['nom'] as String,
+      category: json['category'] as String,
       type: json['type'] as String,
-      nbStars: json['nbStars'] as String,
-      distance: json['distance'],
-      appSize: json['appSize'],
-      appMag: json['appMag'],
-      constellation: json['constellation'],
-      description: json['description'],
+      nbStars: json["nombre d'étoiles"] as String,
     );
 
 Map<String, dynamic> _$GalaxyToJson(Galaxy instance) => <String, dynamic>{
       'distance': instance.distance,
-      'appSize': instance.appSize,
-      'appMag': instance.appMag,
+      'taille app.': instance.apparentSize,
+      'magnitude app.': instance.apparentMag,
       'constellation': instance.constellation,
       'description': instance.description,
+      'nom': instance.nom,
+      'category': instance.category,
       'type': instance.type,
-      'nbStars': instance.nbStars,
+      "nombre d'étoiles": instance.nbStars,
     };
 
 Planet _$PlanetFromJson(Map<String, dynamic> json) => Planet(
+      distance: json['distance'] as String,
+      apparentSize: json['taille app.'] as String,
+      apparentMag: json['magnitude app.'] as String,
+      constellation: json['constellation'] as String,
+      description: json['description'] as String,
+      nom: json['nom'] as String,
+      category: json['category'] as String,
       hasRing: json['hasRing'] as bool,
-      nbSatellites: json['nbSatellites'] as int,
-      rayon: json['rayon'],
-      distance: json['distance'],
-      appSize: json['appSize'],
-      appMag: json['appMag'],
-      constellation: json['constellation'],
-      description: json['description'],
+      nbSatellites: json['nombre de satellites'] as int,
+      rayon: json['rayon'] as String,
     );
 
 Map<String, dynamic> _$PlanetToJson(Planet instance) => <String, dynamic>{
       'distance': instance.distance,
-      'appSize': instance.appSize,
-      'appMag': instance.appMag,
+      'taille app.': instance.apparentSize,
+      'magnitude app.': instance.apparentMag,
       'constellation': instance.constellation,
       'description': instance.description,
+      'nom': instance.nom,
+      'category': instance.category,
       'rayon': instance.rayon,
       'hasRing': instance.hasRing,
-      'nbSatellites': instance.nbSatellites,
+      'nombre de satellites': instance.nbSatellites,
     };
 
 Star _$StarFromJson(Map<String, dynamic> json) => Star(
-      type: json['type'] as bool,
-      rayon: json['rayon'],
-      distance: json['distance'],
-      appSize: json['appSize'],
-      appMag: json['appMag'],
-      constellation: json['constellation'],
-      description: json['description'],
+      distance: json['distance'] as String,
+      apparentSize: json['taille app.'] as String,
+      apparentMag: json['magnitude app.'] as String,
+      constellation: json['constellation'] as String,
+      description: json['description'] as String,
+      nom: json['nom'] as String,
+      category: json['category'] as String,
+      rayon: json['rayon'] as String,
     );
 
 Map<String, dynamic> _$StarToJson(Star instance) => <String, dynamic>{
       'distance': instance.distance,
-      'appSize': instance.appSize,
-      'appMag': instance.appMag,
+      'taille app.': instance.apparentSize,
+      'magnitude app.': instance.apparentMag,
       'constellation': instance.constellation,
       'description': instance.description,
+      'nom': instance.nom,
+      'category': instance.category,
       'rayon': instance.rayon,
-      'type': instance.type,
     };
 
 Satellite _$SatelliteFromJson(Map<String, dynamic> json) => Satellite(
-      hasRing: json['hasRing'] as bool,
-      rayon: json['rayon'],
-      distance: json['distance'],
-      appSize: json['appSize'],
-      appMag: json['appMag'],
-      constellation: json['constellation'],
-      description: json['description'],
+      distance: json['distance'] as String,
+      apparentSize: json['taille app.'] as String,
+      apparentMag: json['magnitude app.'] as String,
+      constellation: json['constellation'] as String,
+      description: json['description'] as String,
+      nom: json['nom'] as String,
+      category: json['category'] as String,
+      rayon: json['rayon'] as String,
     );
 
 Map<String, dynamic> _$SatelliteToJson(Satellite instance) => <String, dynamic>{
       'distance': instance.distance,
-      'appSize': instance.appSize,
-      'appMag': instance.appMag,
+      'taille app.': instance.apparentSize,
+      'magnitude app.': instance.apparentMag,
       'constellation': instance.constellation,
       'description': instance.description,
+      'nom': instance.nom,
+      'category': instance.category,
       'rayon': instance.rayon,
-      'hasRing': instance.hasRing,
     };

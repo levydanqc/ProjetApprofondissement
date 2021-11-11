@@ -1,3 +1,4 @@
+import 'package:astrokit/src/Screens/list_astres.dart';
 import 'package:astrokit/src/Shared/action_button.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,12 @@ PreferredSizeWidget header({
     actions: <Widget>[
       Padding(
         padding: const EdgeInsets.only(right: 20.0),
-        child: ActionButton(icon: Icons.search, click: () {}),
+        child: IconButton(
+            icon: Image.asset("assets/images/astres/icon.png",
+                width: 25, height: 25),
+            onPressed: () {
+              Navigator.pushNamed(context, ListAstres.routeName);
+            }),
       ),
       Padding(
         padding: const EdgeInsets.only(right: 20.0),

@@ -1,5 +1,8 @@
+import 'package:astrokit/src/Screens/astre_detail.dart';
+import 'package:astrokit/src/Screens/list_astres.dart';
 import 'package:astrokit/src/Screens/home.dart';
 import 'package:astrokit/src/Screens/user_settings.dart';
+import 'package:astrokit/src/class/astres.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -72,6 +75,19 @@ class MyApp extends StatelessWidget {
                       type: routeSettings.name == UserSettings.routeName
                           ? PageTransitionType.leftToRight
                           : PageTransitionType.rightToLeft);
+                case ListAstres.routeName:
+                  return PageTransition(
+                      child: const ListAstres(),
+                      type: routeSettings.name == UserSettings.routeName
+                          ? PageTransitionType.leftToRight
+                          : PageTransitionType.rightToLeft);
+                case AstreDetail.routeName:
+                  return PageTransition(
+                    type: PageTransitionType.rightToLeft,
+                    curve: Curves.linear,
+                    child: AstreDetail(
+                        astre: routeSettings.arguments as Map<String, dynamic>),
+                  );
                 case LoginScreen.routeName:
                 default:
                   return PageTransition(
