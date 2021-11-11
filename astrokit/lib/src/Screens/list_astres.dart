@@ -78,9 +78,13 @@ class _ListAstresState extends State<ListAstres> {
                 icon: _favIcon,
                 onPressed: () {
                   setState(() {
-                    _favIcon = _favIcon.icon == Icons.favorite_outline_outlined
-                        ? const Icon(Icons.favorite)
-                        : const Icon(Icons.favorite_outline_outlined);
+                    if (_favIcon.icon == Icons.favorite_outline_outlined) {
+                      _favIcon = const Icon(Icons.favorite);
+                      _astres = Astre.getFav();
+                    } else {
+                      _astres = Astre.getAstres();
+                      _favIcon = const Icon(Icons.favorite_outline_outlined);
+                    }
                   });
                 }),
           ),

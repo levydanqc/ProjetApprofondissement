@@ -71,6 +71,12 @@ abstract class Astre {
     });
   }
 
+  static Future<List<Astre>> getFav() {
+    return getAstres().then((astres) {
+      return astres.where((astre) => astre.fav).toList();
+    });
+  }
+
   static Future<List<Astre>> updateFav(Astre pAstre) {
     return getAstres().then((astres) {
       for (var astre in astres) {
