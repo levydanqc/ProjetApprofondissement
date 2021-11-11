@@ -18,7 +18,7 @@ class _AstreDetailState extends State<AstreDetail> {
   @override
   Widget build(BuildContext context) {
     widget.astre.forEach((key, value) {
-      if (!["nom", "description", "category", "hasRing"].contains(key)) {
+      if (!["nom", "description", "category", "hasRing", "fav"].contains(key)) {
         _astreDetail[key.toString().capitalize()] =
             value.toString().capitalize();
       }

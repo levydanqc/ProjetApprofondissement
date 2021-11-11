@@ -26,6 +26,7 @@ Future<String> readFile(String pFileName) async {
     return contents;
   } catch (e) {
     /// Return 0 if an error occured.
+    /// i.e. file does not exist.
     return "0";
   }
 }

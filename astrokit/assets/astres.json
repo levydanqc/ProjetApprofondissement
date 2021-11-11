@@ -1,6 +1,7 @@
 [
     {
         "nom": "Nébuleuse du Crabe",
+        "fav": false,
         "category": "nb",
         "catalogue": "NGC 1952 / M1",
         "distance": "6500 ± 1600 a.l.",
@@ -12,6 +13,7 @@
     },
     {
         "nom": "Galaxie d'Andromède",
+        "fav": false,
         "category": "glx",
         "catalogue": "NGC 224 / M31",
         "distance": "2.55M a.l.",
@@ -24,6 +26,7 @@
     },
     {
         "nom": "Jupiter",
+        "fav": false,
         "category": "pln",
         "rayon": "0 km",
         "nombre de satellites": 0,
@@ -36,6 +39,7 @@
     },
     {
         "nom": "Saturne",
+        "fav": false,
         "category": "pln",
         "rayon": "0 km",
         "nombre de satellites": 0,
@@ -48,6 +52,7 @@
     },
     {
         "nom": "Mars",
+        "fav": false,
         "category": "pln",
         "rayon": "0 km",
         "nombre de satellites": 0,
@@ -60,6 +65,7 @@
     },
     {
         "nom": "Venus",
+        "fav": false,
         "category": "pln",
         "rayon": "0 km",
         "nombre de satellites": 0,
@@ -72,6 +78,7 @@
     },
     {
         "nom": "Neptune",
+        "fav": false,
         "category": "pln",
         "rayon": "0 km",
         "nombre de satellites": 0,
@@ -84,6 +91,7 @@
     },
     {
         "nom": "Mercure",
+        "fav": false,
         "category": "pln",
         "rayon": "0 km",
         "nombre de satellites": 0,
@@ -96,6 +104,7 @@
     },
     {
         "nom": "Uranus",
+        "fav": false,
         "category": "pln",
         "rayon": "0 km",
         "nombre de satellites": 0,
@@ -108,6 +117,7 @@
     },
     {
         "nom": "Lune",
+        "fav": false,
         "category": "stl",
         "rayon": "0 km",
         "catalogue": "",
@@ -119,6 +129,7 @@
     },
     {
         "nom": "Io",
+        "fav": false,
         "category": "stl",
         "rayon": "0 km",
         "catalogue": "",
@@ -130,6 +141,7 @@
     },
     {
         "nom": "Europe",
+        "fav": false,
         "category": "stl",
         "rayon": "0 km",
         "catalogue": "",
@@ -141,6 +153,7 @@
     },
     {
         "nom": "Ganymède",
+        "fav": false,
         "category": "stl",
         "rayon": "0 km",
         "catalogue": "",
@@ -152,6 +165,7 @@
     },
     {
         "nom": "Titan",
+        "fav": false,
         "category": "stl",
         "rayon": "0 km",
         "catalogue": "",
@@ -163,6 +177,7 @@
     },
     {
         "nom": "Callisto",
+        "fav": false,
         "category": "stl",
         "rayon": "0 km",
         "catalogue": "",
@@ -174,6 +189,7 @@
     },
     {
         "nom": "Triton",
+        "fav": false,
         "category": "stl",
         "rayon": "0 km",
         "catalogue": "",
@@ -185,6 +201,7 @@
     },
     {
         "nom": "Sirius",
+        "fav": false,
         "category": "str",
         "rayon": "0 km",
         "type": "A",
@@ -197,6 +214,7 @@
     },
     {
         "nom": "Arcturus",
+        "fav": false,
         "category": "str",
         "rayon": "0 km",
         "type": "A",
@@ -209,6 +227,7 @@
     },
     {
         "nom": "Véga",
+        "fav": false,
         "category": "str",
         "rayon": "0 km",
         "type": "A",
@@ -221,6 +240,7 @@
     },
     {
         "nom": "Rigel",
+        "fav": false,
         "category": "str",
         "rayon": "0 km",
         "type": "A",
@@ -233,6 +253,7 @@
     },
     {
         "nom": "Bételgeuse",
+        "fav": false,
         "category": "str",
         "rayon": "0 km",
         "type": "A",
@@ -245,6 +266,7 @@
     },
     {
         "nom": "Capella",
+        "fav": false,
         "category": "str",
         "rayon": "0 km",
         "type": "A",
@@ -257,6 +279,7 @@
     },
     {
         "nom": "Antares",
+        "fav": false,
         "category": "str",
         "rayon": "0 km",
         "type": "A",
@@ -269,6 +292,7 @@
     },
     {
         "nom": "Aldébaran",
+        "fav": false,
         "category": "str",
         "rayon": "0 km",
         "type": "A",
@@ -281,6 +305,7 @@
     },
     {
         "nom": "Nébuleuse du fantôme de Jupiter",
+        "fav": false,
         "category": "nb",
         "type":"Nébuleuse planétaire",
         "catalogue": "NGC 3242",
@@ -292,6 +317,7 @@
     },
     {
         "nom": "Nébuleuse de la Lyre",
+        "fav": false,
         "category": "nb",
         "type":"Nébuleuse planétaire",
         "catalogue": "NGC 6720 / M57",
@@ -303,6 +329,7 @@
     },
     {
         "nom": "Nébuleuse de l'Oeil de Chat",
+        "fav": false,
         "category": "nb",
         "type":"Nébuleuse planétaire",
         "catalogue": "NGC 6543",
@@ -314,6 +341,7 @@
     },
     {
         "nom": "Nébuleuse de l'Insecte",
+        "fav": false,
         "category": "nb",
         "type":"Nébuleuse planétaire",
         "catalogue": "",
@@ -325,6 +353,7 @@
     },
     {
         "nom": "Nébuleuse de l'Insecte",
+        "fav": false,
         "category": "nb",
         "type":"Nébuleuse planétaire",
         "catalogue": "NGC 6302",
@@ -336,6 +365,7 @@
     },
     {
         "nom": "Nébuleuse du Balai de Sorcière",
+        "fav": false,
         "category": "nb",
         "type": "Rémanent de supernova",
         "catalogue": "NGC 6960",

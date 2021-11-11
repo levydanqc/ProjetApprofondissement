@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:astrokit/src/utils/file_manager.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
@@ -5,6 +8,7 @@ import 'package:flutter/services.dart';
 part 'astres.g.dart';
 
 abstract class Astre {
+  static const String _file = 'astres';
   final String distance;
   final String apparentSize;
   final String apparentMag;
@@ -12,9 +16,11 @@ abstract class Astre {
   final String description;
   final String nom;
   final String category;
+  bool fav;
 
   Astre(
       {required this.distance,
+      required this.fav,
       required this.apparentSize,
       required this.apparentMag,
       required this.constellation,
@@ -22,9 +28,13 @@ abstract class Astre {
       required this.nom,
       required this.category});
 
+  static loadAstres() async {
+    final String jsonAstres = await rootBundle.loadString('assets/astres.json');
+    if (jsonAstres == "0") writeToFile(jsonAstres, _file);
+  }
+
   static Future<List<Astre>> getAstres() async {
-    final String response = await rootBundle.loadString('assets/astres.json');
-    final data = await json.decode(response);
+    final data = jsonDecode(await readFile(_file));
 
     List<Astre> astres = [];
 
@@ -61,6 +71,19 @@ abstract class Astre {
     });
   }
 
+  static Future<List<Astre>> updateFav(Astre pAstre) {
+    return getAstres().then((astres) {
+      for (var astre in astres) {
+        if (astre == pAstre) {
+          astre.fav = !astre.fav;
+          break;
+        }
+      }
+      writeToFile(jsonEncode(astres), _file);
+      return astres;
+    });
+  }
+
   toJson() {
     switch (category) {
       case 'pln':
@@ -75,6 +98,14 @@ abstract class Astre {
         return _$SatelliteToJson(this as Satellite);
     }
   }
+
+  @override
+  bool operator ==(Object other) =>
+      other is Astre &&
+      nom == other.nom &&
+      constellation == other.constellation;
+  @override
+  int get hashCode => Object.hash(nom.hashCode, nom.hashCode);
 }
 
 @JsonSerializable()
@@ -88,9 +119,11 @@ class Nebulea extends Astre {
       required String constellation,
       required String description,
       required String nom,
+      required bool fav,
       required String category,
       required this.type})
       : super(
+            fav: fav,
             distance: distance,
             apparentSize: apparentSize,
             apparentMag: apparentMag,
@@ -119,9 +152,11 @@ class Galaxy extends Astre {
       required String description,
       required String nom,
       required String category,
+      required bool fav,
       required this.type,
       required this.nbStars})
       : super(
+            fav: fav,
             distance: distance,
             apparentSize: apparentSize,
             apparentMag: apparentMag,
@@ -147,8 +182,10 @@ abstract class Annexe extends Astre {
       required String description,
       required String nom,
       required String category,
+      required bool fav,
       required this.rayon})
       : super(
+            fav: fav,
             distance: distance,
             apparentSize: apparentSize,
             apparentMag: apparentMag,
@@ -173,8 +210,10 @@ class Planet extends Annexe {
       required String category,
       required this.hasRing,
       required this.nbSatellites,
+      required bool fav,
       required String rayon})
       : super(
+            fav: fav,
             distance: distance,
             apparentSize: apparentSize,
             apparentMag: apparentMag,
@@ -200,9 +239,11 @@ class Star extends Annexe {
       required String description,
       required String nom,
       required String category,
+      required bool fav,
       required String rayon})
       : super(
             distance: distance,
+            fav: fav,
             apparentSize: apparentSize,
             apparentMag: apparentMag,
             constellation: constellation,
@@ -227,8 +268,10 @@ class Satellite extends Annexe {
       required String description,
       required String nom,
       required String category,
+      required bool fav,
       required String rayon})
       : super(
+            fav: fav,
             distance: distance,
             apparentSize: apparentSize,
             apparentMag: apparentMag,

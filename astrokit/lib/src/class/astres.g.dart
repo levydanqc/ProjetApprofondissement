@@ -7,6 +7,7 @@ part of 'astres.dart';
 // **************************************************************************
 
 Nebulea _$NebuleaFromJson(Map<String, dynamic> json) => Nebulea(
+      fav: json['fav'] as bool,
       distance: json['distance'] as String,
       apparentSize: json['taille app.'] as String,
       apparentMag: json['magnitude app.'] as String,
@@ -18,6 +19,7 @@ Nebulea _$NebuleaFromJson(Map<String, dynamic> json) => Nebulea(
     );
 
 Map<String, dynamic> _$NebuleaToJson(Nebulea instance) => <String, dynamic>{
+      'fav': instance.fav,
       'distance': instance.distance,
       'taille app.': instance.apparentSize,
       'magnitude app.': instance.apparentMag,
@@ -29,6 +31,7 @@ Map<String, dynamic> _$NebuleaToJson(Nebulea instance) => <String, dynamic>{
     };
 
 Galaxy _$GalaxyFromJson(Map<String, dynamic> json) => Galaxy(
+      fav: json['fav'] as bool,
       distance: json['distance'] as String,
       apparentSize: json['taille app.'] as String,
       apparentMag: json['magnitude app.'] as String,
@@ -41,6 +44,7 @@ Galaxy _$GalaxyFromJson(Map<String, dynamic> json) => Galaxy(
     );
 
 Map<String, dynamic> _$GalaxyToJson(Galaxy instance) => <String, dynamic>{
+      'fav': instance.fav,
       'distance': instance.distance,
       'taille app.': instance.apparentSize,
       'magnitude app.': instance.apparentMag,
@@ -53,6 +57,7 @@ Map<String, dynamic> _$GalaxyToJson(Galaxy instance) => <String, dynamic>{
     };
 
 Planet _$PlanetFromJson(Map<String, dynamic> json) => Planet(
+      fav: json['fav'] as bool,
       distance: json['distance'] as String,
       apparentSize: json['taille app.'] as String,
       apparentMag: json['magnitude app.'] as String,
@@ -66,6 +71,7 @@ Planet _$PlanetFromJson(Map<String, dynamic> json) => Planet(
     );
 
 Map<String, dynamic> _$PlanetToJson(Planet instance) => <String, dynamic>{
+      'fav': instance.fav,
       'distance': instance.distance,
       'taille app.': instance.apparentSize,
       'magnitude app.': instance.apparentMag,
@@ -79,6 +85,7 @@ Map<String, dynamic> _$PlanetToJson(Planet instance) => <String, dynamic>{
     };
 
 Star _$StarFromJson(Map<String, dynamic> json) => Star(
+      fav: json['fav'] as bool,
       distance: json['distance'] as String,
       apparentSize: json['taille app.'] as String,
       apparentMag: json['magnitude app.'] as String,
@@ -90,6 +97,7 @@ Star _$StarFromJson(Map<String, dynamic> json) => Star(
     );
 
 Map<String, dynamic> _$StarToJson(Star instance) => <String, dynamic>{
+      'fav': instance.fav,
       'distance': instance.distance,
       'taille app.': instance.apparentSize,
       'magnitude app.': instance.apparentMag,
@@ -101,6 +109,7 @@ Map<String, dynamic> _$StarToJson(Star instance) => <String, dynamic>{
     };
 
 Satellite _$SatelliteFromJson(Map<String, dynamic> json) => Satellite(
+      fav: json['fav'] as bool,
       distance: json['distance'] as String,
       apparentSize: json['taille app.'] as String,
       apparentMag: json['magnitude app.'] as String,
@@ -112,6 +121,7 @@ Satellite _$SatelliteFromJson(Map<String, dynamic> json) => Satellite(
     );
 
 Map<String, dynamic> _$SatelliteToJson(Satellite instance) => <String, dynamic>{
+      'fav': instance.fav,
       'distance': instance.distance,
       'taille app.': instance.apparentSize,
       'magnitude app.': instance.apparentMag,

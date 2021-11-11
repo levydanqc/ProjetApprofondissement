@@ -1,11 +1,11 @@
 import 'package:astrokit/src/Screens/home.dart';
+import 'package:astrokit/src/class/astres.dart';
 import 'package:astrokit/src/utils/location.dart';
 import 'package:astrokit/src/utils/user_validation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_login/flutter_login.dart';
 import '../const.dart' as env;
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -19,8 +19,8 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    // getPermissions(Location());
     getLocation();
+    Astre.loadAstres();
   }
 
   // TODO: Correct scrollable widget when keyboard

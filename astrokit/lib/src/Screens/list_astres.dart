@@ -2,6 +2,12 @@ import 'package:astrokit/src/Screens/astre_detail.dart';
 import 'package:astrokit/src/class/astres.dart';
 import 'package:flutter/material.dart';
 
+class MyNotification extends Notification {
+  final String title;
+
+  const MyNotification({required this.title});
+}
+
 class ListAstres extends StatefulWidget {
   const ListAstres({Key? key}) : super(key: key);
 
@@ -13,8 +19,9 @@ class ListAstres extends StatefulWidget {
 
 class _ListAstresState extends State<ListAstres> {
   late Future<List<Astre>> _astres;
-  Icon _icon = const Icon(Icons.search);
+  Icon _iconSearch = const Icon(Icons.search);
   Widget _searchBar = const Text('Liste des astres');
+  Icon _favIcon = const Icon(Icons.favorite_outline_outlined);
 
   @override
   initState() {
@@ -29,13 +36,13 @@ class _ListAstresState extends State<ListAstres> {
         title: _searchBar,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: IconButton(
-                icon: _icon,
+                icon: _iconSearch,
                 onPressed: () {
                   setState(() {
-                    if (_icon.icon == Icons.search) {
-                      _icon = const Icon(Icons.close);
+                    if (_iconSearch.icon == Icons.search) {
+                      _iconSearch = const Icon(Icons.close);
                       _searchBar = TextField(
                         autofocus: true,
                         style: const TextStyle(color: Colors.white),
@@ -58,10 +65,22 @@ class _ListAstresState extends State<ListAstres> {
                         },
                       );
                     } else {
-                      _icon = const Icon(Icons.search);
+                      _iconSearch = const Icon(Icons.search);
                       _searchBar = const Text('Liste des astres');
                       _astres = Astre.getAstres();
                     }
+                  });
+                }),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: IconButton(
+                icon: _favIcon,
+                onPressed: () {
+                  setState(() {
+                    _favIcon = _favIcon.icon == Icons.favorite_outline_outlined
+                        ? const Icon(Icons.favorite)
+                        : const Icon(Icons.favorite_outline_outlined);
                   });
                 }),
           ),
@@ -75,7 +94,49 @@ class _ListAstresState extends State<ListAstres> {
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 Astre astre = snapshot.data![index];
-                return mytile(astre: astre);
+                return Container(
+                  margin: const EdgeInsets.all(8),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                    color: Colors.amber,
+                  ),
+                  child: ListTile(
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: Icon(astre.fav
+                              ? Icons.favorite_outlined
+                              : Icons.favorite_outline_outlined),
+                          color: Colors.black,
+                          onPressed: () {
+                            setState(() {
+                              _astres = Astre.updateFav(astre);
+                            });
+                          },
+                        ),
+                        const Icon(Icons.chevron_right_rounded,
+                            color: Colors.black),
+                      ],
+                    ),
+                    leading: Hero(
+                      tag: astre.nom,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.asset('assets/images/astres/moon.jpg'),
+                      ),
+                    ),
+                    title: Text(astre.nom),
+                    subtitle: Text(astre.constellation),
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        AstreDetail.routeName,
+                        arguments: astre.toJson(),
+                      );
+                    },
+                  ),
+                );
               },
             );
           } else if (snapshot.hasError) {
@@ -162,11 +223,11 @@ class mytile extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: IconButton(
-                    icon: const Icon(Icons.favorite_outline_outlined),
+                    icon: Icon(astre.fav
+                        ? Icons.favorite_outlined
+                        : Icons.favorite_outline_outlined),
                     color: Colors.black,
-                    onPressed: () {
-                      
-                    },
+                    onPressed: () {},
                   ),
                 ),
                 const Padding(
@@ -177,45 +238,6 @@ class mytile extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class tile extends StatelessWidget {
-  const tile({
-    Key? key,
-    required this.astre,
-  }) : super(key: key);
-
-  final Astre astre;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(8),
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(8.0)),
-        color: Colors.amber,
-      ),
-      child: ListTile(
-        trailing: const Icon(Icons.chevron_right_rounded, color: Colors.black),
-        leading: Hero(
-          tag: astre.nom,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(8.0),
-            child: Image.asset('assets/images/astres/moon.jpg'),
-          ),
-        ),
-        title: Text(astre.nom),
-        subtitle: Text(astre.constellation),
-        onTap: () {
-          Navigator.pushNamed(
-            context,
-            AstreDetail.routeName,
-            arguments: astre.toJson(),
-          );
-        },
       ),
     );
   }
