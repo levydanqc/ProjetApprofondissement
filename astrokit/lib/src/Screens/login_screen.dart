@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_login/flutter_login.dart';
 import '../const.dart' as env;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -20,7 +21,21 @@ class _LoginScreenState extends State<LoginScreen> {
   void initState() {
     super.initState();
     getLocation();
-    Astre.loadAstres();
+    _firstRun().then((value) {
+      if (value) {
+        Astre.loadAstres();
+      }
+    });
+  }
+
+  Future<bool> _firstRun() async {
+    final prefs = await SharedPreferences.getInstance();
+    final value = prefs.getBool("first_run") ?? true;
+    if (value) {
+      prefs.setBool("first_run", false);
+      return true;
+    }
+    return false;
   }
 
   // TODO: Correct scrollable widget when keyboard

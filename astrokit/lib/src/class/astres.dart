@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:astrokit/src/utils/file_manager.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'dart:convert';
