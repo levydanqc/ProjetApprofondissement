@@ -1,3 +1,4 @@
+import 'package:astrokit/src/class/astres.dart';
 import 'package:astrokit/src/utils/capitalize.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +31,7 @@ class _AstreDetailState extends State<AstreDetail> {
         title: Text(widget.astre['nom']),
       ),
       body: ListView(
+        shrinkWrap: true,
         children: [
           Hero(
             tag: widget.astre['nom'],
@@ -74,10 +76,22 @@ class _AstreDetailState extends State<AstreDetail> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
             child: Text(
-              widget.astre['description'],
+              widget.astre['description'].join('\n'),
               style: const TextStyle(color: Colors.white),
             ),
           ),
+          SafeArea(
+            child: Container(
+              margin: const EdgeInsets.symmetric(vertical: 50),
+              alignment: Alignment.bottomRight,
+              child: Text(
+                widget.astre['categorie'] == "satellite"
+                    ? "* La distance est relative au corps central du satellite."
+                    : "",
+                style: const TextStyle(color: Colors.white),
+              ),
+            ),
+          )
         ],
       ),
     );
