@@ -14,24 +14,25 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  another_flushbar: ^1.10.24
-  flutter_launcher_icons: ^0.9.2
-  crypto: ^3.0.1
-  flutter_login: ^2.2.1
-  flutter_secure_storage: ^4.2.1
-  http: ^0.13.4
-  intl: ^0.17.0
-  path_provider: ^2.0.5
-  flutter_google_places: ^0.3.0
-  geocoding: ^2.0.1
-  uuid: ^3.0.5
-  location: ^4.3.0
-  geolocator: ^7.7.0
-  page_transition: ^2.0.4
-  json_serializable: ^6.0.0
-  build_runner: ^2.1.4
-  json_annotation: ^4.3.0
-  shared_preferences: ^2.0.8
+  another_flushbar:
+  flutter_launcher_icons:
+  crypto:
+  flutter_login:
+  flutter_secure_storage:
+  http:
+  intl:
+  path_provider:
+  flutter_google_places:
+  geocoding:
+  uuid:
+  location:
+  geolocator:
+  page_transition:
+  json_serializable:
+  build_runner:
+  json_annotation:
+  shared_preferences:
+  provider:
 
 flutter_icons:
   ios: true

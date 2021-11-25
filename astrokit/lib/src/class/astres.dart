@@ -10,25 +10,25 @@ abstract class Astre {
   final String distance;
   final String apparentSize;
   final String apparentMag;
-  final String constellation;
-  final String description;
+  final List<dynamic> description;
   final String nom;
-  final String category;
+  final String categorie;
+  final String rayon;
   bool fav;
 
   Astre(
       {required this.distance,
+      required this.rayon,
       required this.fav,
       required this.apparentSize,
       required this.apparentMag,
-      required this.constellation,
       required this.description,
       required this.nom,
-      required this.category});
+      required this.categorie});
 
   static loadAstres() async {
     final String jsonAstres = await rootBundle.loadString('assets/astres.json');
-    if (jsonAstres == "0") writeToFile(jsonAstres, _file);
+    writeToFile(jsonAstres, _file);
   }
 
   static Future<List<Astre>> getAstres() async {
@@ -37,25 +37,25 @@ abstract class Astre {
     List<Astre> astres = [];
 
     for (Map<String, dynamic> astre in data) {
-      switch (astre['category']) {
-        case 'pln':
+      switch (astre['categorie']) {
+        case 'planète':
           astres.add(_$PlanetFromJson(astre));
           break;
-        case 'glx':
+        case 'galaxie':
           astres.add(_$GalaxyFromJson(astre));
           break;
-        case 'nb':
+        case 'nébuleuse':
           astres.add(_$NebuleaFromJson(astre));
           break;
-        case 'str':
+        case 'étoile':
           astres.add(_$StarFromJson(astre));
           break;
-        case 'stl':
+        case 'satellite':
           astres.add(_$SatelliteFromJson(astre));
           break;
       }
     }
-
+    astres.sort((a, b) => a.nom.compareTo(b.nom));
     return astres;
   }
 
@@ -64,7 +64,12 @@ abstract class Astre {
     return getAstres().then((astres) {
       return astres
           .where((astre) =>
-              astre.nom.contains(value) || astre.constellation.contains(value))
+              astre.nom.toLowerCase().contains(value) ||
+              astre.categorie.toLowerCase().contains(value) ||
+              (astre is Nebulea &&
+                  astre.constellation.toLowerCase().contains(value)) ||
+              (astre is Galaxy &&
+                  astre.constellation.toLowerCase().contains(value)))
           .toList();
     });
   }
@@ -89,25 +94,23 @@ abstract class Astre {
   }
 
   toJson() {
-    switch (category) {
-      case 'pln':
+    switch (categorie) {
+      case 'planète':
         return _$PlanetToJson(this as Planet);
-      case 'glx':
+      case 'galaxie':
         return _$GalaxyToJson(this as Galaxy);
-      case 'nb':
+      case 'nébuleuse':
         return _$NebuleaToJson(this as Nebulea);
-      case 'str':
+      case 'étoile':
         return _$StarToJson(this as Star);
-      case 'stl':
+      case 'satellite':
         return _$SatelliteToJson(this as Satellite);
     }
   }
 
   @override
   bool operator ==(Object other) =>
-      other is Astre &&
-      nom == other.nom &&
-      constellation == other.constellation;
+      other is Astre && nom == other.nom && categorie == other.categorie;
   @override
   int get hashCode => Object.hash(nom.hashCode, nom.hashCode);
 }
@@ -115,26 +118,30 @@ abstract class Astre {
 @JsonSerializable()
 class Nebulea extends Astre {
   final String type;
+  final String constellation;
+  final String catalogue;
 
   Nebulea(
       {required String distance,
       required String apparentSize,
       required String apparentMag,
-      required String constellation,
-      required String description,
+      required List<dynamic> description,
       required String nom,
       required bool fav,
-      required String category,
-      required this.type})
+      required String categorie,
+      required String rayon,
+      required this.type,
+      required this.constellation,
+      required this.catalogue})
       : super(
             fav: fav,
             distance: distance,
             apparentSize: apparentSize,
             apparentMag: apparentMag,
-            constellation: constellation,
             description: description,
             nom: nom,
-            category: category);
+            categorie: categorie,
+            rayon: rayon);
 
   factory Nebulea.fromJson(Map<String, dynamic> json) =>
       _$NebuleaFromJson(json);
@@ -147,27 +154,31 @@ class Nebulea extends Astre {
 class Galaxy extends Astre {
   final String type;
   final String nbStars;
+  final String constellation;
+  final String catalogue;
 
   Galaxy(
       {required String distance,
       required String apparentSize,
       required String apparentMag,
-      required String constellation,
-      required String description,
+      required List<dynamic> description,
       required String nom,
-      required String category,
+      required String categorie,
       required bool fav,
+      required String rayon,
+      required this.constellation,
       required this.type,
-      required this.nbStars})
+      required this.nbStars,
+      required this.catalogue})
       : super(
             fav: fav,
             distance: distance,
             apparentSize: apparentSize,
             apparentMag: apparentMag,
-            constellation: constellation,
             description: description,
             nom: nom,
-            category: category);
+            rayon: rayon,
+            categorie: categorie);
 
   factory Galaxy.fromJson(Map<String, dynamic> json) => _$GalaxyFromJson(json);
 
@@ -176,27 +187,24 @@ class Galaxy extends Astre {
 }
 
 abstract class Annexe extends Astre {
-  final String rayon;
-
   Annexe(
       {required String distance,
       required String apparentSize,
       required String apparentMag,
-      required String constellation,
-      required String description,
+      required List<dynamic> description,
       required String nom,
-      required String category,
+      required String categorie,
       required bool fav,
-      required this.rayon})
+      required String rayon})
       : super(
             fav: fav,
+            rayon: rayon,
             distance: distance,
             apparentSize: apparentSize,
             apparentMag: apparentMag,
-            constellation: constellation,
             description: description,
             nom: nom,
-            category: category);
+            categorie: categorie);
 }
 
 @JsonSerializable()
@@ -208,10 +216,9 @@ class Planet extends Annexe {
       {required String distance,
       required String apparentSize,
       required String apparentMag,
-      required String constellation,
-      required String description,
+      required List<dynamic> description,
       required String nom,
-      required String category,
+      required String categorie,
       required this.hasRing,
       required this.nbSatellites,
       required bool fav,
@@ -221,10 +228,9 @@ class Planet extends Annexe {
             distance: distance,
             apparentSize: apparentSize,
             apparentMag: apparentMag,
-            constellation: constellation,
             description: description,
             nom: nom,
-            category: category,
+            categorie: categorie,
             rayon: rayon);
 
   factory Planet.fromJson(Map<String, dynamic> json) => _$PlanetFromJson(json);
@@ -239,10 +245,9 @@ class Star extends Annexe {
       {required String distance,
       required String apparentSize,
       required String apparentMag,
-      required String constellation,
-      required String description,
+      required List<dynamic> description,
       required String nom,
-      required String category,
+      required String categorie,
       required bool fav,
       required String rayon})
       : super(
@@ -250,10 +255,9 @@ class Star extends Annexe {
             fav: fav,
             apparentSize: apparentSize,
             apparentMag: apparentMag,
-            constellation: constellation,
             description: description,
             nom: nom,
-            category: category,
+            categorie: categorie,
             rayon: rayon);
 
   factory Star.fromJson(Map<String, dynamic> json) => _$StarFromJson(json);
@@ -268,10 +272,9 @@ class Satellite extends Annexe {
       {required String distance,
       required String apparentSize,
       required String apparentMag,
-      required String constellation,
-      required String description,
+      required List<dynamic> description,
       required String nom,
-      required String category,
+      required String categorie,
       required bool fav,
       required String rayon})
       : super(
@@ -279,10 +282,9 @@ class Satellite extends Annexe {
             distance: distance,
             apparentSize: apparentSize,
             apparentMag: apparentMag,
-            constellation: constellation,
             description: description,
             nom: nom,
-            category: category,
+            categorie: categorie,
             rayon: rayon);
 
   factory Satellite.fromJson(Map<String, dynamic> json) =>

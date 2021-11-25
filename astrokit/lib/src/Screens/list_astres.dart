@@ -1,5 +1,6 @@
 import 'package:astrokit/src/Screens/astre_detail.dart';
 import 'package:astrokit/src/class/astres.dart';
+import 'package:astrokit/src/utils/capitalize.dart';
 import 'package:flutter/material.dart';
 
 class MyNotification extends Notification {
@@ -130,8 +131,8 @@ class _ListAstresState extends State<ListAstres> {
                         child: Image.asset('assets/images/astres/moon.jpg'),
                       ),
                     ),
-                    title: Text(astre.nom),
-                    subtitle: Text(astre.constellation),
+                    title: Text(astre.nom.toString().capitalize()),
+                    subtitle: Text(astre.categorie.toString().capitalize()),
                     onTap: () {
                       Navigator.pushNamed(
                         context,
@@ -214,7 +215,7 @@ class mytile extends StatelessWidget {
                               fontSize: 16,
                               fontWeight: FontWeight.bold)),
                       const SizedBox(height: 5),
-                      Text(astre.constellation,
+                      Text(astre.categorie,
                           style: const TextStyle(
                               color: Colors.black87, fontSize: 13)),
                     ],

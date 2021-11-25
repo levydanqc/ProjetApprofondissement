@@ -182,7 +182,7 @@
                                         <menuItem title="Correct Spelling Automatically" id="78Y-hA-62v">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="toggleAutomaticSpellicatalogorrection:" target="-1" id="2lM-Qi-WAP"/>
+                                                <action selector="toggleAutomaticSpellingCorrection:" target="-1" id="2lM-Qi-WAP"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -322,6 +322,10 @@
                             </menuItem>
                         </items>
                     </menu>
+                </menuItem>
+                <menuItem title="Help" id="EPT-qC-fAb">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Help" systemMenu="help" id="rJ0-wn-3NY"/>
                 </menuItem>
             </items>
             <point key="canvasLocation" x="142" y="-258"/>

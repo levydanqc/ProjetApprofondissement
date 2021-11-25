@@ -2,377 +2,449 @@
     {
         "nom": "Nébuleuse du Crabe",
         "fav": false,
-        "category": "nb",
+        "categorie": "nébuleuse",
+        "rayon": "5.5 al",
         "catalogue": "NGC 1952 / M1",
-        "distance": "6500 ± 1600 a.l.",
-        "taille app.": "6' x 4'",
+        "distance": "6 523 al",
+        "taille app.": "[6', 4']",
         "magnitude app.": "8.4",
         "constellation": "Taureau",
         "type": "Rémanent de supernova",
-        "description": "La nébuleuse du Crabe est un rémanent de supernova résultant de l'explosion d'une étoile massive en supernova historique (SN 1054) observée par un astronome chinois durant la période de la dynastie Song de juillet 1054 à avril 1056. La nébuleuse a été observée pour la première fois en 1731 par John Bevis, puis en 1758 par Charles Messier qui en fait le premier objet de son catalogue (catalogue Messier)."
+        "description": [
+            "La nébuleuse du Crabe (M1, NGC 1952, Taurus A, Taurus X-1) est un rémanent de supernova résultant de l'explosion d'une étoile massive en supernova historique (SN 1054) observée par un astronome chinois durant la période de la dynastie Song de juillet 1054 à avril 1056. La nébuleuse a été observée pour la première fois en 1731 par John Bevis, puis en 1758 par Charles Messier, qui en fait le premier objet de son catalogue (catalogue Messier). Son nom traditionnel remonte au xixe siècle, époque où William Parsons, troisième comte de Rosse, observe la nébuleuse au château de Birr (dans les années 1840) et y fait référence sous le nom de nébuleuse du Crabe, en raison d'un dessin qu'il en fait qui ressemble à un crabe2. La nébuleuse du Crabe ne doit pas être confondue avec la nébuleuse planétaire Hen2-104, parfois appelée « nébuleuse australe du Crabe » du fait de sa ressemblance considérée comme plus manifeste avec le crustacé éponyme.",
+            "Située à une distance de ∼6 300 a.l. (∼1 930 pc) de la Terre, dans la constellation du Taureau, la nébuleuse a un diamètre de ∼10 a.l. (∼3,07 pc) et sa vitesse d'expansion est de 1 500 km/s, caractéristiques typiques pour un rémanent de cet âge. C'est le premier objet astronomique à avoir été associé à une explosion historique de supernova."
+        ]
     },
     {
         "nom": "Galaxie d'Andromède",
         "fav": false,
-        "category": "glx",
+        "rayon": "110 000 al",
+        "categorie": "galaxie",
         "catalogue": "NGC 224 / M31",
-        "distance": "2.55M a.l.",
-        "taille app.": "190' x 60'",
+        "distance": "2.55 M al",
+        "taille app.": "[190', 60']",
         "magnitude app.": "3.4",
         "constellation": "Andromède",
-        "type":"Galaxie spirale",
+        "type": "Galaxie spirale",
         "nombre d'étoiles": "1 G",
-        "description": "Appelée grande nébuleuse d’Andromède jusqu'à ce que sa vraie nature ait été reconnue dans les années 1920, la galaxie d'Andromède est la galaxie spirale la plus proche de la Voie lactée (toutes classes confondues, la galaxie la plus proche est la naine du Grand Chien) et le plus grand membre du Groupe local d'une soixantaine de galaxies individuelles dont toutes deux font partie. D'un diamètre d'environ 220 000 années-lumière, elle contiendrait environ mille milliards d'étoiles11, deux à cinq fois plus que notre galaxie."
+        "description": [
+            "La galaxie d'Andromède, également identifiée sous les numéros M31 dans le Catalogue de Messier et NGC 224, est une galaxie spirale située à environ 2,55 millions d'années-lumière du Soleil, dans la constellation d'Andromède.",
+            "\nLa galaxie d'Andromède (NGC 224) a été utilisée par Gérard de Vaucouleurs comme une galaxie de type morphologique SA(s)b dans son atlas des galaxies9,10.",
+            "\nAppelée grande nébuleuse d’Andromède jusqu'à ce que sa vraie nature ait été reconnue dans les années 1920, la galaxie d'Andromède est la galaxie spirale la plus proche de la Voie lactée (toutes classes confondues, la galaxie la plus proche est la naine du Grand Chien) et le plus grand membre du Groupe local d'une soixantaine de galaxies individuelles dont toutes deux font partie. D'un diamètre d'environ 220 000 années-lumière, elle contiendrait environ mille milliards d'étoiles11, deux à cinq fois plus que notre galaxie."
+        ]
     },
     {
         "nom": "Jupiter",
         "fav": false,
-        "category": "pln",
-        "rayon": "0 km",
-        "nombre de satellites": 0,
-        "hasRing": true,
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "categorie": "planète",
+        "rayon": "69 911 km",
+        "nombre de satellites": 79,
+        "hasRing": false,
+        "distance": "[588 M km, 968 M km]",
+        "taille app.": "[29.8\", 50.1\"]",
+        "magnitude app.": "[−2.94, −1.66]",
+        "description": [
+            "Jupiter est la cinquième planète du Système solaire par ordre d'éloignement au Soleil, et la plus grande par la taille et la masse devant Saturne, qui est comme elle une planète géante gazeuse. Elle est même plus volumineuse que toutes les autres planètes réunies avec son rayon moyen de 69 911 km, qui vaut environ onze fois celui de la Terre, et sa masse de 1,898 2 × 1027 kg, qui est 318 fois plus grande. Orbitant en moyenne à environ 779 millions de kilomètres du Soleil (5,2 unités astronomiques), sa période de révolution vaut un peu moins de 12 ans. La masse jovienne est par ailleurs une unité utilisée pour exprimer la masse d'objets substellaires tels que les naines brunes.",
+            "\nElle a une composition similaire au Soleil, constituée principalement d'hydrogène mais aussi d'hélium pour un quart de sa masse et un dixième de son volume. Elle possède probablement un noyau rocheux composé d'éléments plus lourds mais, comme les autres planètes géantes, Jupiter n'a pas de surface solide bien définie mais plutôt un vaste manteau d'hydrogène métallique ; de petites quantités de composés tels que l'ammoniac, le méthane et l'eau sont aussi détectables. Elle connaît toujours une contraction continue de son intérieur qui génère une chaleur supérieure à celle reçue du Soleil grâce au mécanisme de Kelvin-Helmholtz. Sa rapide période de rotation estimée à 9 h 55 min implique que la planète prend la forme d'un ellipsoïde de révolution avec un renflement léger autour de l'équateur et permet de générer un important champ magnétique donnant naissance à la magnétosphère de Jupiter, la plus puissante du Système solaire. Son atmosphère extérieure est visiblement séparée en plusieurs bandes de couleurs allant du crème au brun à différentes latitudes, avec des turbulences et des tempêtes dont les vents violents atteignent 600 km/h le long de leurs frontières interactives. La Grande Tache rouge, un anticyclone géant de taille comparable à la Terre observé depuis au moins le xviie siècle, en est un exemple."
+        ]
     },
     {
         "nom": "Saturne",
         "fav": false,
-        "category": "pln",
-        "rayon": "0 km",
-        "nombre de satellites": 0,
-        "hasRing": true,
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "categorie": "planète",
+        "rayon": "58 232 km",
+        "nombre de satellites": 82,
+        "hasRing": false,
+        "distance": "[1.2 G km, 1.7 G km]",
+        "taille app.": "[14.5\", 20.1\"]",
+        "magnitude app.": "[−0.55, +1.17]",
+        "description": [
+            "Saturne est la sixième planète du Système solaire par ordre d'éloignement au Soleil, et la deuxième plus grande par la taille et la masse après Jupiter, qui est comme elle une planète géante gazeuse. Son rayon moyen de 58 232 km est environ neuf fois et demi celui de la Terre et sa masse de 568,46 × 1024 kg est 95 fois plus grande. Orbitant en moyenne à environ 1,4 milliard de kilomètres du Soleil (9,5 unités astronomiques), sa période de révolution vaut un peu moins de 30 années tandis que sa période de rotation est estimée à 10 h 33 min.",
+            "\nLa caractéristique la plus célèbre de la planète est son système d'anneaux proéminent. Composés principalement de particules de glace et de poussières, ils sont observés pour la première fois en 1610 par Galilée et se seraient formés il y a moins de 100 millions d'années. Saturne est la planète possédant le plus grand nombre de satellites naturels avec 82 confirmés et des centaines de satellites mineurs dans son cortège. Sa plus grande lune, Titan, est la deuxième plus grande du Système solaire (derrière Ganymède, lune de Jupiter, toutes deux avec un diamètre plus grand que celui de Mercure) et c'est la seule lune connue à posséder une atmosphère substantielle. Une autre lune remarquable, Encelade, émet de puissants geysers de glace et serait un habitat potentiel pour la vie microbienne."
+        ]
     },
     {
         "nom": "Mars",
         "fav": false,
-        "category": "pln",
-        "rayon": "0 km",
-        "nombre de satellites": 0,
+        "categorie": "planète",
+        "rayon": "3 390 km",
+        "nombre de satellites": 2,
         "hasRing": false,
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[54.6 M km, 401 M km]",
+        "taille app.": "[+3.5\", +25.1\"]",
+        "magnitude app.": "[−2.94,+1.86]",
+        "description": [
+            "Mars (prononcé en français : /maʁs/) est la quatrième planète du Système solaire par ordre croissant de la distance au Soleil et la deuxième par ordre croissant de la taille et de la masse. Son éloignement au Soleil est compris entre 1,381 et 1,666 UA (206,6 à 249,2 millions de kilomètres), avec une période orbitale de 669,58 jours martiens (686,71 jours ou 1,88 année terrestre).",
+            "\nC’est une planète tellurique, comme le sont Mercure, Vénus et la Terre, environ dix fois moins massive que la Terre mais dix fois plus massive que la Lune. Sa topographie présente des analogies aussi bien avec la Lune, à travers ses cratères et ses bassins d'impact, qu'avec la Terre, avec des formations d'origine tectonique et climatique telles que des volcans, des rifts, des vallées, des mesas, des champs de dunes et des calottes polaires. Le plus haut volcan du Système solaire, Olympus Mons (qui est un volcan bouclier), et le plus grand canyon, Valles Marineris, se trouvent sur Mars."
+        ]
     },
     {
         "nom": "Venus",
         "fav": false,
-        "category": "pln",
-        "rayon": "0 km",
+        "categorie": "planète",
+        "rayon": "6 052 km",
         "nombre de satellites": 0,
         "hasRing": false,
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[40 M km, 261 M km]",
+        "taille app.": "[9.7″, 66.0″]",
+        "magnitude app.": "[−4.92, −2.98]",
+        "description": [
+            "Vénus est la deuxième planète du Système solaire par ordre d'éloignement au Soleil, et la sixième plus grosse aussi bien par la masse que le diamètre. Elle doit son nom à la déesse romaine de l'amour.",
+            "\nVénus orbite autour du Soleil tous les 224,7 jours terrestres. Avec une période de rotation de 243 jours terrestres, il lui faut plus de temps pour tourner autour de son axe que toute autre planète du Système solaire. Comme Uranus, elle possède une rotation rétrograde et tourne dans le sens opposé à celui des autres planètes : le soleil s'y lève à l'ouest et se couche à l'est. Vénus possède l'orbite la plus circulaire des planètes du Système solaire avec une excentricité orbitale presque nulle et, du fait de sa lente rotation, est quasiment sphérique (aplatissement considéré comme nul). Elle ne possède pas de satellite naturel.",
+            "\nVénus est l'une des quatre planètes telluriques du Système solaire. Elle est parfois appelée la « planète sœur » de la Terre en raison des similitudes relatives de leurs diamètres, masses, proximités au Soleil et compositions. Par d'autres aspects, elle est radicalement différente de la Terre : son champ magnétique est bien plus faible et elle possède une atmosphère beaucoup plus dense, composée de dioxyde de carbone à plus de 96 %. La pression atmosphérique à la surface de la planète est ainsi 92 fois supérieure à celle de la Terre, soit environ la pression ressentie, sur Terre, à 900 mètres sous l'eau. Elle est de loin la planète la plus chaude du Système solaire — même si Mercure est plus proche du Soleil — avec une température de surface moyenne de 462 °C (725 K). La planète est enveloppée d'une couche opaque de nuages d'acide sulfurique, hautement réfléchissants pour la lumière visible, empêchant sa surface d'être vue depuis l'espace. Bien que la présence d'océans d'eau liquide à sa surface par le passé soit supposée, la surface de Vénus est un paysage désertique sec et rocheux où se déroule toujours un volcanisme. La topographie de Vénus présente peu de reliefs élevés et consiste essentiellement en de vastes plaines géologiquement très jeunes : quelques centaines de millions d'années."
+        ]
     },
     {
         "nom": "Neptune",
         "fav": false,
-        "category": "pln",
-        "rayon": "0 km",
-        "nombre de satellites": 0,
+        "categorie": "planète",
+        "rayon": "24 622 km",
+        "nombre de satellites": 14,
         "hasRing": false,
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[4.3 G km, 4.55 G km]",
+        "taille app.": "[2.2″, 2.4″]",
+        "magnitude app.": "[7.67, 8.00]",
+        "description": [
+            "Neptune est la huitième planète par ordre d'éloignement au Soleil et la plus éloignée connue du Système solaireN 2. Elle orbite autour du Soleil à une distance d'environ 30,1 UA (4,5 milliards de kilomètres), avec une excentricité orbitale moitié moindre que celle de la Terre et une période de révolution de 164,79 ans. Il s'agit de la troisième planète la plus massive du Système solaire et de la quatrième plus grande par la taille — un peu plus massive mais un peu plus petite qu'Uranus. Par ailleurs, elle est la planète géante la plus dense.",
+            "\nN'étant pas visible à l'œil nu, Neptune est le premier objet céleste et la seule des huit planètes du Système solaire à avoir été découverte par déduction plutôt que par observation empirique. En effet, l'astronome français Alexis Bouvard avait noté des perturbations gravitationnelles inexpliquées sur l'orbite d'Uranus et conjecturé au début du xixe siècle qu'une huitième planète, plus lointaine, pouvait en être la cause. Les astronomes britannique John Couch Adams en 1843 et français Urbain Le Verrier en 1846 calculèrent indépendamment la position prévue de cette hypothétique planète. Grâce aux calculs de ce dernier, elle fut finalement observée pour la première fois le 23 septembre 1846 par l'astronome prussien Johann Gottfried Galle, à un degré de la position prédite. Bien que Galle ait utilisé les calculs de Le Verrier pour découvrir la planète, la paternité de la découverte entre Adams et Le Verrier fut longtemps disputée. Sa plus grande lune, Triton, est découverte 17 jours plus tard par William Lassell. Depuis 2013, on connaît 14 satellites naturels de Neptune. La planète possède également un système d'anneaux faible et fragmenté et une magnétosphère."
+        ]
     },
     {
         "nom": "Mercure",
         "fav": false,
-        "category": "pln",
-        "rayon": "0 km",
+        "categorie": "planète",
+        "rayon": "4880 km",
         "nombre de satellites": 0,
         "hasRing": false,
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[77 M km, 222 M km]",
+        "taille app.": "[4.5″, 13″]",
+        "magnitude app.": "[−2.48, +7.25]",
+        "description": [
+            "Mercure est la planète la plus proche du Soleil et la moins massive du Système solaireN 1. Son éloignement au Soleil est compris entre 0,31 et 0,47 unité astronomique (soit 46 et 70 millions de kilomètres), ce qui correspond à une excentricité orbitale de 0,2 — plus de douze fois supérieure à celle de la Terre, et de loin la plus élevée pour une planète du Système solaire. Elle est visible à l'œil nu depuis la Terre avec un diamètre apparent de 4,5 à 13 secondes d'arc, et une magnitude apparente de 5,7 à −2,3 ; son observation est toutefois rendue difficile par son élongation toujours inférieure à 28,3° qui la noie le plus souvent dans l'éclat du soleil. En pratique, cette proximité avec le soleil implique qu'elle ne peut être vue que près de l'horizon occidental après le coucher du soleil ou près de l'horizon oriental avant le lever du soleil, en général au crépuscule. Mercure a la particularité d'être en résonance spin-orbite 3:2, sa période de révolution (~88 jours) valant exactement 1,5 fois sa période de rotation (~59 jours), et donc la moitié d'un jour solaire (~176 jours). Ainsi, relativement aux étoiles fixes, elle tourne sur son axe exactement trois fois toutes les deux révolutions autour du Soleil.",
+            "\nMercure est une planète tellurique, comme le sont également Vénus, la Terre et Mars. Elle est près de trois fois plus petite et presque vingt fois moins massive que la Terre mais presque aussi dense qu'elle. Sa densité remarquable — dépassée seulement par celle de la Terre, qui lui serait d'ailleurs inférieure sans l'effet de la compression gravitationnelle — est due à l'importance de son noyau métallique, qui représenterait 85 % de son rayon, contre environ 55 % pour la Terre."
+        ]
     },
     {
         "nom": "Uranus",
         "fav": false,
-        "category": "pln",
-        "rayon": "0 km",
-        "nombre de satellites": 0,
+        "categorie": "planète",
+        "rayon": "25 362 km",
+        "nombre de satellites": 27,
         "hasRing": false,
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[2.6 G km, 3.2 G km]",
+        "taille app.": "[3.3″, 4.1″]",
+        "magnitude app.": "[+5.38, +6.03]",
+        "description": [
+            "Uranus est la septième planète du Système solaire par ordre d'éloignement au Soleil. Elle orbite autour de celui-ci à une distance d'environ 19,2 unités astronomiques (2,87 milliards de kilomètres), avec une période de révolution de 84,05 années terrestres. Il s'agit de la quatrième planète la plus massive du Système solaire et de la troisième plus grande par la taille.",
+            "\nElle est la première planète découverte à l’époque moderne avec un télescope et non connue depuis l'Antiquité. Bien qu'elle soit visible à l’œil nu, son caractère planétaire n'est alors pas identifié en raison de son très faible éclat et de son déplacement apparent dans le ciel très lent. William Herschel l'observe pour la première fois le 13 mars 1781 et la confirmation qu'il s'agit d'une planète et non d'une comète est faite pendant les mois qui suivent.",
+            "\nComme Jupiter et Saturne, l'atmosphère d'Uranus est composée principalement d'hydrogène et d'hélium avec des traces d'hydrocarbures. Cependant, comme Neptune, elle contient une proportion plus élevée de « glaces » au sens physique, c'est-à-dire de substances volatiles telles que l'eau, l'ammoniac et le méthane, tandis que l'intérieur de la planète est principalement composé de glaces et de roches, d'où leur nom de « géantes de glaces ». Par ailleurs, le méthane est le principal responsable de la teinte aigue-marine de la planète. Son atmosphère planétaire est la plus froide du Système solaire, avec une température minimale de 49 K (−224 °C) à la tropopause, et présente une structure nuageuse en couches."
+        ]
     },
     {
         "nom": "Lune",
+        "corps central": "Terre",
         "fav": false,
-        "category": "stl",
-        "rayon": "0 km",
-        "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "categorie": "satellite",
+        "rayon": "1 737 km",
+        "distance": "[362 600 km, 405 400 km]",
+        "taille app.": "[29.3', 34.1']",
+        "magnitude app.": "[−2.5, −12.9]",
+        "description": [
+            "La Lunenote 1 est l'unique satellite naturel permanent de la planète Terre. Il s'agit du cinquième plus grand satellite naturel du Système solaire et du plus grand des satellites planétaires par rapport à la taille de la planète autour de laquelle il orbite. Elle est le deuxième satellite le plus dense du Système solaire après Io, un satellite de Jupiternote 2.",
+            "\nLa Lune est en rotation synchrone avec la Terre, lui montrant donc constamment la même face. Celle-ci, appelée face visible, est marquée par des mers lunaires volcaniques sombres qui remplissent les espaces entre les hautes terres claires — certaines atteignant 9 km d'altitude — et ses cratères d'impact proéminents. Réciproquement, elle possède une face cachée, qui présente moins de mers mais beaucoup plus de cratères, dont le bassin Pôle Sud-Aitken, le plus grand du satellite et l'un des plus grands du Système solaire par son diamètre de 2 500 km. Elle est dépourvue d'atmosphère dense et de champ magnétique. Son influence gravitationnelle sur la Terre produit les marées océaniques, les marées terrestres, un léger allongement de la durée du jour et la stabilisation de l'inclinaison de l'axe terrestre.",
+            "\nLa distance orbitale moyenne de la Lune est de 384 402 km, soit environ trente fois le diamètre terrestre, et sa période de révolution vaut 27,3 jours. La taille apparente de la Lune dans le ciel est approximativement la même que celle du Soleil, puisque le diamètre de l'étoile est environ 400 fois celui du satellite, mais qu'elle est également 400 fois plus éloignée. Par conséquent, la Lune peut couvrir presque exactement le Soleil dans le ciel, permettant l'apparition d'éclipses solaires totales. Cette correspondance de taille apparente disparaîtra dans un avenir lointain du fait de l'augmentation de la distance lunaire d'environ 3,8 cm par an. La formation de la Lune remonterait à il y a environ 4,51 milliards d'années, peu de temps après celle de la Terre. L'explication la plus largement acceptée est que la Lune s'est formée à partir des débris restants après un impact géant entre une proto-Terre et une protoplanète de la taille de Mars, appelée Théia."
+        ]
     },
     {
         "nom": "Io",
+        "corps central": "Jupiter",
         "fav": false,
-        "category": "stl",
-        "rayon": "0 km",
-        "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "categorie": "satellite",
+        "rayon": "1821 km",
+        "distance": "[420 000 km, 423 400 km]",
+        "taille app.": "1.2'",
+        "magnitude app.": "+5,02",
+        "description": [
+            "Io, ou Jupiter I, est un satellite naturel de Jupiter. Plus spécifiquement, il s'agit de la troisième plus grande lune galiléenne et celle ayant l'orbite la plus proche de la planète Jupiter, possédant un demi-grand axe de 421 800 kilomètres et une période de révolution d'environ 42 heures. Par ailleurs, elle est la quatrième plus grande lune du Système solaire, la plus dense d'entre elles et l'objet astronomique connu contenant la plus faible quantité d'eau.",
+            "\nAvec plus de 400 volcans actifs, Io est l'objet le plus géologiquement actif du Système solaire. Cette activité géologique extrême est le résultat d'un réchauffement par effet de marée dû au frottement engendré à l'intérieur de la lune par ses interactions gravitationnelles avec Jupiter et les autres satellites galiléens — notamment Europe et Ganymède avec lesquelles elle est en résonance orbitale. Ces volcans produisent des panaches de soufre et de dioxyde de soufre qui s'élèvent à plusieurs centaines de kilomètres au-dessus de la surface puis recouvrent les vastes plaines de la lune d'une couche givrée de matériaux. Les panaches, associés aux coulées de lave pouvant s'étendre sur plus de 500 km de longueur, produisent de grands changements de surface et la peignent dans diverses nuances de jaune, rouge, blanc, noir et vert. Les matériaux produits par ce volcanisme constituent d'une part l'atmosphère mince et inégale de Io, et produisent d'autre part un grand tore de plasma autour de Jupiter du fait de leur interaction avec la magnétosphère de la planète."
+        ]
     },
     {
         "nom": "Europe",
+        "corps central": "",
         "fav": false,
-        "category": "stl",
-        "rayon": "0 km",
-        "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "categorie": "satellite",
+        "rayon": "1 561 km",
+        "distance": "[664 862 km, 676 938 km]",
+        "taille app.": "[]",
+        "magnitude app.": "+5.29",
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Ganymède",
+        "corps central": "",
         "fav": false,
-        "category": "stl",
+        "categorie": "satellite",
         "rayon": "0 km",
-        "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Titan",
+        "corps central": "",
         "fav": false,
-        "category": "stl",
+        "categorie": "satellite",
         "rayon": "0 km",
-        "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Callisto",
+        "corps central": "",
         "fav": false,
-        "category": "stl",
+        "categorie": "satellite",
         "rayon": "0 km",
-        "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Triton",
+        "corps central": "",
         "fav": false,
-        "category": "stl",
+        "categorie": "satellite",
         "rayon": "0 km",
-        "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Sirius",
         "fav": false,
-        "category": "str",
+        "categorie": "étoile",
         "rayon": "0 km",
         "type": "A",
-        "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Arcturus",
         "fav": false,
-        "category": "str",
+        "categorie": "étoile",
         "rayon": "0 km",
         "type": "A",
-        "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Véga",
         "fav": false,
-        "category": "str",
+        "categorie": "étoile",
         "rayon": "0 km",
         "type": "A",
-        "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Rigel",
         "fav": false,
-        "category": "str",
+        "categorie": "étoile",
         "rayon": "0 km",
         "type": "A",
-        "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Bételgeuse",
         "fav": false,
-        "category": "str",
+        "categorie": "étoile",
         "rayon": "0 km",
         "type": "A",
-        "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Capella",
         "fav": false,
-        "category": "str",
+        "categorie": "étoile",
         "rayon": "0 km",
         "type": "A",
-        "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Antares",
         "fav": false,
-        "category": "str",
+        "categorie": "étoile",
         "rayon": "0 km",
         "type": "A",
-        "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Aldébaran",
         "fav": false,
-        "category": "str",
+        "categorie": "étoile",
         "rayon": "0 km",
         "type": "A",
-        "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
-        "constellation": "",
-        "description": ""
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Nébuleuse du fantôme de Jupiter",
         "fav": false,
-        "category": "nb",
-        "type":"Nébuleuse planétaire",
+        "categorie": "nébuleuse",
+        "rayon": "",
+        "type": "Nébuleuse planétaire",
         "catalogue": "NGC 3242",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
         "constellation": "",
-        "description": ""
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Nébuleuse de la Lyre",
         "fav": false,
-        "category": "nb",
-        "type":"Nébuleuse planétaire",
+        "categorie": "nébuleuse",
+        "rayon": "",
+        "type": "Nébuleuse planétaire",
         "catalogue": "NGC 6720 / M57",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
         "constellation": "",
-        "description": ""
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Nébuleuse de l'Oeil de Chat",
         "fav": false,
-        "category": "nb",
-        "type":"Nébuleuse planétaire",
+        "categorie": "nébuleuse",
+        "rayon": "",
+        "type": "Nébuleuse planétaire",
         "catalogue": "NGC 6543",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
         "constellation": "",
-        "description": ""
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Nébuleuse de l'Insecte",
         "fav": false,
-        "category": "nb",
-        "type":"Nébuleuse planétaire",
+        "categorie": "nébuleuse",
+        "rayon": "",
+        "type": "Nébuleuse planétaire",
         "catalogue": "",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
         "constellation": "",
-        "description": ""
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Nébuleuse de l'Insecte",
         "fav": false,
-        "category": "nb",
-        "type":"Nébuleuse planétaire",
+        "categorie": "nébuleuse",
+        "rayon": "",
+        "type": "Nébuleuse planétaire",
         "catalogue": "NGC 6302",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
         "constellation": "",
-        "description": ""
+        "description": [
+            "",
+            "\n"
+        ]
     },
     {
         "nom": "Nébuleuse du Balai de Sorcière",
         "fav": false,
-        "category": "nb",
+        "categorie": "nébuleuse",
+        "rayon": "",
         "type": "Rémanent de supernova",
         "catalogue": "NGC 6960",
-        "distance": "",
-        "taille app.": "",
-        "magnitude app.": "",
+        "distance": "[]",
+        "taille app.": "[]",
+        "magnitude app.": "[]",
         "constellation": "",
-        "description": ""
+        "description": [
+            "",
+            "\n"
+        ]
     }
 ]

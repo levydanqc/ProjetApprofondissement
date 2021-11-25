@@ -11,16 +11,16 @@ String hashPwd(String pwd) {
   return digest.toString();
 }
 
-Future<String?>? signup(LoginData loginData) {
+Future<String?>? signup(SignupData signupData) {
   return Future.delayed(loginTime).then((_) {
-    File.read(loginData.name).then((value) {
+    File.read(signupData.name!).then((value) {
       if (value != null) {
         return "Un compte est déjà relié à cet email.";
       }
     });
 
-    String pwd = hashPwd(loginData.password);
-    File.write(loginData.name, pwd);
+    String pwd = hashPwd(signupData.password!);
+    File.write(signupData.name!, pwd);
 
     return null;
   });

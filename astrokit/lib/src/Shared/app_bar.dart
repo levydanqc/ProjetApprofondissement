@@ -1,6 +1,8 @@
 import 'package:astrokit/src/Screens/list_astres.dart';
 import 'package:astrokit/src/Shared/action_button.dart';
+import 'package:astrokit/src/utils/theme_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 PreferredSizeWidget header({
   required context,
@@ -8,8 +10,14 @@ PreferredSizeWidget header({
   Widget? leading,
 }) {
   return AppBar(
-    title: Center(
-      child: Text(title),
+    title: GestureDetector(
+      onDoubleTap: () {
+        print("Double Tap");
+        Provider.of<ThemeModel>(context, listen: false).toggleTheme();
+      },
+      child: Center(
+        child: Text(title),
+      ),
     ),
     leading: leading,
     actions: <Widget>[
