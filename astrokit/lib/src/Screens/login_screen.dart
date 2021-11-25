@@ -3,7 +3,6 @@ import 'package:astrokit/src/class/astres.dart';
 import 'package:astrokit/src/utils/location.dart';
 import 'package:astrokit/src/utils/user_validation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_login/flutter_login.dart';
 import '../const.dart' as env;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -26,6 +25,16 @@ class _LoginScreenState extends State<LoginScreen> {
         Astre.loadAstres();
       }
     });
+    _isLoggedIn().then((value) {
+      if (value) {
+        Navigator.pushReplacementNamed(context, Home.routeName);
+      }
+    });
+  }
+
+  Future<bool> _isLoggedIn() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('isLoggedIn') ?? false;
   }
 
   Future<bool> _firstRun() async {
@@ -38,7 +47,6 @@ class _LoginScreenState extends State<LoginScreen> {
     return false;
   }
 
-  // TODO: Correct scrollable widget when keyboard
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

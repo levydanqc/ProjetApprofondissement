@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'themes.dart' as theme;
 
@@ -15,5 +16,11 @@ class ThemeModel extends ChangeNotifier {
       themeMode = ThemeMode.system;
       return notifyListeners();
     }
+    playLocalAsset();
+  }
+
+  Future<AudioPlayer> playLocalAsset() async {
+    AudioCache cache = AudioCache();
+    return await cache.play("opening.mp3");
   }
 }

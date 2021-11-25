@@ -33,6 +33,7 @@ dependencies:
   json_annotation:
   shared_preferences:
   provider:
+  audioplayers:
 
 flutter_icons:
   ios: true
@@ -59,3 +60,4 @@ flutter:
     - assets/images/
     - assets/images/astres/
     - assets/astres.json
+    - assets/opening.mp3

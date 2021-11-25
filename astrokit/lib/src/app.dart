@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
   }) : super(key: key);
 
   final SettingsController settingsController;
-
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(

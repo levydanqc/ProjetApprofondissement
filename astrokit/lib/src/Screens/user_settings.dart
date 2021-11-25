@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:astrokit/src/Screens/home.dart';
+import 'package:astrokit/src/Screens/list_astres.dart';
+import 'package:astrokit/src/Screens/login_screen.dart';
 import 'package:astrokit/src/Shared/action_button.dart';
 import 'package:astrokit/src/Shared/app_bar.dart';
 import 'package:astrokit/src/Shared/error_screen.dart';
@@ -10,6 +12,7 @@ import 'package:astrokit/src/utils/file_manager.dart';
 import 'package:astrokit/src/class/position.dart';
 import 'package:astrokit/src/utils/round.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../.env.dart' as env;
 
 import 'package:flutter_google_places/flutter_google_places.dart';
@@ -51,7 +54,31 @@ class _UserSettingsState extends State<UserSettings> {
                 Navigator.pushNamed(context, Home.routeName);
               }),
           title: "Endroits",
-          context: context),
+          context: context,
+          actions: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(right: 20.0),
+              child: IconButton(
+                  icon: Image.asset("assets/images/astres/icon.png",
+                      width: 25, height: 25),
+                  onPressed: () {
+                    Navigator.pushNamed(context, ListAstres.routeName);
+                  }),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 20.0),
+              child: ActionButton(
+                icon: Icons.logout_rounded,
+                click: () async {
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
+                  prefs.setBool("isLogged", false);
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      LoginScreen.routeName, (Route<dynamic> route) => false);
+                },
+              ),
+            ),
+          ]),
       body: Builder(builder: (context) {
         return Column(
           children: [

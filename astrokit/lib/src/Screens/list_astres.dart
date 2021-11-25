@@ -1,4 +1,5 @@
 import 'package:astrokit/src/Screens/astre_detail.dart';
+import 'package:astrokit/src/Shared/app_bar.dart';
 import 'package:astrokit/src/class/astres.dart';
 import 'package:astrokit/src/utils/capitalize.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class _ListAstresState extends State<ListAstres> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: header(
         title: _searchBar,
         actions: [
           Padding(
@@ -90,6 +91,7 @@ class _ListAstresState extends State<ListAstres> {
                 }),
           ),
         ],
+        context: context,
       ),
       body: FutureBuilder<List<Astre>>(
         future: _astres,

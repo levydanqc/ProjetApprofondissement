@@ -1,3 +1,4 @@
+import 'package:astrokit/src/Shared/app_bar.dart';
 import 'package:astrokit/src/class/astres.dart';
 import 'package:astrokit/src/utils/capitalize.dart';
 import 'package:flutter/material.dart';
@@ -27,8 +28,13 @@ class _AstreDetailState extends State<AstreDetail> {
 
     return Scaffold(
       backgroundColor: Colors.deepPurple[900],
-      appBar: AppBar(
+      appBar: header(
+        context: context,
         title: Text(widget.astre['nom']),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: ListView(
         shrinkWrap: true,

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:astrokit/src/Screens/list_astres.dart';
 import 'package:astrokit/src/Screens/user_settings.dart';
 import 'package:astrokit/src/Shared/action_button.dart';
 import 'package:astrokit/src/Shared/app_bar.dart';
@@ -73,18 +74,33 @@ class _HomeState extends State<Home> {
             List? data = snapshot.data as List?;
             return Scaffold(
               appBar: header(
-                context: context,
-                title: data![0].isNotEmpty
-                    ? data[0][indice].postalCode
-                    : "AstroKit",
-                leading: ActionButton(
+                  context: context,
+                  title: data![0].isNotEmpty
+                      ? data[0][indice].postalCode
+                      : "AstroKit",
+                  leading: ActionButton(
                     icon: Icons.manage_accounts_outlined,
                     click: () {
                       Navigator.pushNamed(context, UserSettings.routeName,
                           arguments: {"_futureLocations": _futureLocations});
-                    }),
-              ),
-              // TODO: Check internet connection
+                    },
+                  ),
+                  actions: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20.0),
+                      child: IconButton(
+                          icon: Image.asset("assets/images/astres/icon.png",
+                              width: 25, height: 25),
+                          onPressed: () {
+                            Navigator.pushNamed(context, ListAstres.routeName);
+                          }),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20.0),
+                      child: ActionButton(
+                          icon: Icons.help_outline_outlined, click: () {}),
+                    ),
+                  ]),
               body: GestureDetector(
                 onHorizontalDragEnd: (details) async {
                   if (details.primaryVelocity! > 0) {

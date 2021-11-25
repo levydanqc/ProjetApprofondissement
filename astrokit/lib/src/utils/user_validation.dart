@@ -1,6 +1,7 @@
 import 'package:flutter_login/flutter_login.dart';
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../class/credentials_manager.dart';
 
 Duration get loginTime => const Duration(milliseconds: 200);
@@ -12,7 +13,7 @@ String hashPwd(String pwd) {
 }
 
 Future<String?>? signup(SignupData signupData) {
-  return Future.delayed(loginTime).then((_) {
+  return Future.delayed(loginTime).then((_) async {
     File.read(signupData.name!).then((value) {
       if (value != null) {
         return "Un compte est déjà relié à cet email.";
@@ -22,12 +23,15 @@ Future<String?>? signup(SignupData signupData) {
     String pwd = hashPwd(signupData.password!);
     File.write(signupData.name!, pwd);
 
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool("isLogged", true);
+
     return null;
   });
 }
 
 Future<String?>? login(LoginData loginData) {
-  return File.read(loginData.name).then((value) {
+  return File.read(loginData.name).then((value) async {
     if (value == null) {
       return "Aucun compte n'est relié à cet email.";
     }
@@ -35,6 +39,9 @@ Future<String?>? login(LoginData loginData) {
     if (value != pwd) {
       return "L'adresse mail et le mot de passe ne correspondent pas.";
     }
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool("isLogged", true);
 
     return null;
   });
