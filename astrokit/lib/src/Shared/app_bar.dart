@@ -13,9 +13,7 @@ PreferredSizeWidget header({
       onDoubleTap: () {
         Provider.of<ThemeModel>(context, listen: false).toggleTheme();
       },
-      child: Center(
-        child: Text(title),
-      ),
+      child: title,
     ),
     leading: leading,
     actions: actions,

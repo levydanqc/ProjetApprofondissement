@@ -19,6 +19,8 @@ class ThemeModel extends ChangeNotifier {
     playLocalAsset();
   }
 
+  get isDarkEnabled => themeMode == ThemeMode.dark;
+
   Future<AudioPlayer> playLocalAsset() async {
     AudioCache cache = AudioCache();
     return await cache.play("opening.mp3");

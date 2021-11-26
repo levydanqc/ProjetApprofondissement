@@ -34,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<bool> _isLoggedIn() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('isLoggedIn') ?? false;
+    return prefs.getBool('isLogged') ?? false;
   }
 
   Future<bool> _firstRun() async {

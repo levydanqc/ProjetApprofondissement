@@ -7,7 +7,7 @@ Widget errorScreen(BuildContext context, String routeName) {
   return Scaffold(
     appBar: header(
       context: context,
-      title: "Astrokit",
+      title: const Text("Astrokit"),
       actions: <Widget>[
         Padding(
           padding: const EdgeInsets.only(right: 20.0),

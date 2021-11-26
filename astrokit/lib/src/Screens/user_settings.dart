@@ -11,7 +11,9 @@ import 'package:astrokit/src/Shared/snack_bar.dart';
 import 'package:astrokit/src/utils/file_manager.dart';
 import 'package:astrokit/src/class/position.dart';
 import 'package:astrokit/src/utils/round.dart';
+import 'package:astrokit/src/utils/theme_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../.env.dart' as env;
 
@@ -53,17 +55,26 @@ class _UserSettingsState extends State<UserSettings> {
               click: () {
                 Navigator.pushNamed(context, Home.routeName);
               }),
-          title: "Endroits",
+          title: const Text("Endroits"),
           context: context,
           actions: <Widget>[
             Padding(
               padding: const EdgeInsets.only(right: 20.0),
-              child: IconButton(
-                  icon: Image.asset("assets/images/astres/icon.png",
-                      width: 25, height: 25),
-                  onPressed: () {
-                    Navigator.pushNamed(context, ListAstres.routeName);
-                  }),
+              child: Switch(
+                value: Provider.of<ThemeModel>(context).isDarkEnabled,
+                onChanged: (bool value) {
+                  setState(() {
+                    Provider.of<ThemeModel>(context, listen: false)
+                        .toggleTheme();
+                  });
+                },
+                activeTrackColor: Colors.deepPurple[700],
+                activeColor: Colors.deepPurple[400],
+                activeThumbImage: const AssetImage("assets/images/nmode.png"),
+                inactiveTrackColor: Colors.yellow[700],
+                inactiveThumbColor: Colors.yellow[700],
+                inactiveThumbImage: const AssetImage("assets/images/lmode.png"),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(right: 20.0),

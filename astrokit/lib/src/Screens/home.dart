@@ -76,8 +76,8 @@ class _HomeState extends State<Home> {
               appBar: header(
                   context: context,
                   title: data![0].isNotEmpty
-                      ? data[0][indice].postalCode
-                      : "AstroKit",
+                      ? Text(data[0][indice].postalCode)
+                      : const Text("AstroKit"),
                   leading: ActionButton(
                     icon: Icons.manage_accounts_outlined,
                     click: () {

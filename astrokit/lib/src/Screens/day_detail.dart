@@ -22,7 +22,7 @@ class DayDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: header(
-          title: dayData["postalCode"],
+          title: Text(dayData["postalCode"]),
           context: context,
           actions: <Widget>[
             Padding(
