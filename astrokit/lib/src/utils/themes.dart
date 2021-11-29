@@ -7,9 +7,8 @@ const Color blue = Color(0xffA1BCFF);
 const Color dBlue = Color(0xff171B57);
 const Color lBg = Color(0xffFFFAF0);
 const Color dBg = Color(0xff1C209C);
-const Color rBg = Color(0xffFFFAF0);
 
-ThemeData darkTheme = ThemeData.dark().copyWith(
+ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
   primaryColor: dBg,
   secondaryHeaderColor: dBlue,
@@ -34,7 +33,7 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
       elevation: 5),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      primary: const Color(0xffE8D6BB),
+      primary: const Color.fromARGB(255, 75, 36, 167),
       onPrimary: white,
       textStyle: GoogleFonts.robotoMono().copyWith(color: white),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -69,7 +68,7 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
 );
 
 ThemeData lightTheme = ThemeData(
-  brightness: Brightness.dark,
+  brightness: Brightness.light,
   primaryColor: lBg,
   secondaryHeaderColor: blue,
   scaffoldBackgroundColor: lBg,
@@ -123,66 +122,6 @@ ThemeData lightTheme = ThemeData(
     ),
     contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
     enableFeedback: true,
-    textColor: white,
-  ),
-);
-
-ThemeData redTheme = ThemeData.dark().copyWith(
-  applyElevationOverlayColor: true,
-  brightness: Brightness.light,
-  primaryColor: rBg,
-  secondaryHeaderColor: blue,
-  scaffoldBackgroundColor: rBg,
-  textTheme: TextTheme(
-    headline1: GoogleFonts.robotoMono()
-        .copyWith(color: white, fontSize: 25, fontWeight: FontWeight.bold),
-    headline2: GoogleFonts.robotoMono()
-        .copyWith(color: black, fontSize: 20, fontWeight: FontWeight.bold),
-    headline3: GoogleFonts.robotoMono()
-        .copyWith(color: black, fontSize: 15, fontWeight: FontWeight.bold),
-    headline4: GoogleFonts.robotoMono().copyWith(color: white, fontSize: 20),
-    headline5: GoogleFonts.robotoMono().copyWith(color: black, fontSize: 20),
-    headline6: GoogleFonts.robotoMono().copyWith(color: black, fontSize: 13),
-    bodyText1: GoogleFonts.robotoMono().copyWith(color: black, fontSize: 15),
-    bodyText2: GoogleFonts.robotoMono().copyWith(color: white, fontSize: 15),
-  ),
-  appBarTheme: const AppBarTheme(
-      color: blue,
-      titleTextStyle: TextStyle(color: rBg),
-      shadowColor: Colors.white,
-      elevation: 5),
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      primary: const Color(0xffE8D6BB),
-      onPrimary: black,
-      textStyle: GoogleFonts.robotoMono().copyWith(color: black),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-      splashFactory: InkRipple.splashFactory,
-      enableFeedback: true,
-      shadowColor: Colors.white,
-      elevation: 10,
-      side: const BorderSide(color: Colors.white, width: 1),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-    ),
-  ),
-  bottomSheetTheme: BottomSheetThemeData(
-    backgroundColor: rBg,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10),
-    ),
-  ),
-  snackBarTheme: SnackBarThemeData(
-    backgroundColor: blue,
-    contentTextStyle: GoogleFonts.robotoMono(),
-  ),
-  listTileTheme: ListTileThemeData(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10),
-    ),
-    contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-    enableFeedback: true,
-    textColor: white,
+    textColor: black,
   ),
 );

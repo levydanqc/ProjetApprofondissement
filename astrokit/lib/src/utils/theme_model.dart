@@ -1,30 +1,25 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'themes.dart' as theme;
 
 class ThemeModel extends ChangeNotifier {
-  ThemeMode themeMode = ThemeMode.dark;
-  static ThemeData darkTheme = theme.darkTheme;
-  static const redFilterColor = Color(0xffD93B30);
+  static const Color redOverlay = Color(0xffD93B30);
+  static Color redFilter = Colors.transparent;
 
   toggleTheme() async {
-    if (themeMode == ThemeMode.system) {
-      darkTheme = theme.redTheme;
-      themeMode = ThemeMode.dark;
+    if (redFilter == Colors.transparent) {
+      redFilter = redOverlay;
 
       return notifyListeners();
-    } else if (themeMode == ThemeMode.dark) {
-      darkTheme = theme.darkTheme;
-      themeMode = ThemeMode.system;
+    } else if (redFilter == redOverlay) {
+      redFilter = Colors.transparent;
 
       return notifyListeners();
     }
-    playLocalAsset();
+    // playLocalAsset();
   }
 
-  bool get redModeEnabled => themeMode == ThemeMode.dark;
-  Color get overlayColor =>
-      darkTheme == theme.redTheme ? redFilterColor : Colors.transparent;
+  Color get overlayColor => redFilter;
+  bool get redModeEnabled => redFilter == redOverlay;
 
   Future<AudioPlayer> playLocalAsset() async {
     AudioCache cache = AudioCache();

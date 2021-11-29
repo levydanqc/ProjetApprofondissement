@@ -47,8 +47,8 @@ class MyApp extends StatelessWidget {
                     onGenerateTitle: (context) =>
                         AppLocalizations.of(context)!.appTitle,
                     theme: lightTheme,
-                    darkTheme: ThemeModel.darkTheme,
-                    themeMode: themeNotifier.themeMode,
+                    darkTheme: darkTheme,
+                    themeMode: ThemeMode.system,
                     onGenerateRoute: (RouteSettings routeSettings) {
                       switch (routeSettings.name) {
                         case UserSettings.routeName:
