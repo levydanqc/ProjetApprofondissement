@@ -9,7 +9,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'Screens/day_detail.dart';
 import 'Screens/login_screen.dart';
 import 'settings/settings_controller.dart';
@@ -22,12 +21,7 @@ class MyApp extends StatelessWidget {
     required this.settingsController,
   }) : super(key: key);
 
-  Color overlay = SharedPreferences.getInstance().then((value) {
-    if (value.getBool('redModeEnabled') ?? false) {
-      return ThemeModel.redFilterColor;
-    }
-    return Colors.transparent;
-  }) as Color;
+  Color overlay = Colors.transparent;
 
   final SettingsController settingsController;
   @override

@@ -103,10 +103,6 @@ class _ListAstresState extends State<ListAstres> {
                 Astre astre = snapshot.data![index];
                 return Container(
                   margin: const EdgeInsets.all(8),
-                  // decoration: const BoxDecoration(
-                  //   borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                  //   color: Colors.amber,
-                  // ),
                   child: ListTile(
                     style: ListTileStyle.drawer,
                     shape: RoundedRectangleBorder(
@@ -119,12 +115,13 @@ class _ListAstresState extends State<ListAstres> {
                       children: [
                         IconButton(
                           icon: Icon(astre.fav
-                              ? Icons.favorite_outlined
+                              ? Icons.favorite
                               : Icons.favorite_outline_outlined),
                           color: Colors.black,
                           onPressed: () {
                             setState(() {
-                              _astres = Astre.updateFav(astre);
+                              _astres = Astre.updateFav(astre,
+                                  fav: _favIcon.icon == Icons.favorite);
                             });
                           },
                         ),

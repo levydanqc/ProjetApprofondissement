@@ -80,8 +80,8 @@ abstract class Astre {
     });
   }
 
-  static Future<List<Astre>> updateFav(Astre pAstre) {
-    return getAstres().then((astres) {
+  static Future<List<Astre>> updateFav(Astre pAstre, {fav = false}) {
+    return getAstres().then((astres) async {
       for (var astre in astres) {
         if (astre == pAstre) {
           astre.fav = !astre.fav;
@@ -89,6 +89,7 @@ abstract class Astre {
         }
       }
       writeToFile(jsonEncode(astres), _file);
+      astres = fav ? await getFav().then((value) => value) : astres;
       return astres;
     });
   }
