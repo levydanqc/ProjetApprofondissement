@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:astrokit/src/Screens/home.dart';
-import 'package:astrokit/src/Screens/list_astres.dart';
 import 'package:astrokit/src/Screens/login_screen.dart';
 import 'package:astrokit/src/Shared/action_button.dart';
 import 'package:astrokit/src/Shared/app_bar.dart';
@@ -55,13 +54,13 @@ class _UserSettingsState extends State<UserSettings> {
               click: () {
                 Navigator.pushNamed(context, Home.routeName);
               }),
-          title: const Text("Endroits"),
+          title: "Endroits",
           context: context,
           actions: <Widget>[
             Padding(
               padding: const EdgeInsets.only(right: 20.0),
               child: Switch(
-                value: Provider.of<ThemeModel>(context).isDarkEnabled,
+                value: Provider.of<ThemeModel>(context).redModeEnabled,
                 onChanged: (bool value) {
                   setState(() {
                     Provider.of<ThemeModel>(context, listen: false)
@@ -155,56 +154,57 @@ class _UserSettingsState extends State<UserSettings> {
         showModalBottomSheet(
           context: context,
           builder: (context) {
-            return FractionallySizedBox(
-              heightFactor: 0.5,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                    child:
-                        Text("Voulez vous ajouter cette adresse au compte ?"),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 25),
-                    child: Text(
-                      selected.toString(),
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold),
+            return SafeArea(
+              child: FractionallySizedBox(
+                heightFactor: 0.5,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Text(
+                          "Voulez vous ajouter cette adresse au compte ?",
+                          style: Theme.of(context).textTheme.bodyText1),
                     ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      ElevatedButton(
-                        child: const Text("Annuler"),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                      ),
-                      ElevatedButton(
-                        child: const Text("Confirmer"),
-                        onPressed: () async {
-                          List locations = await _futureLocations;
-                          setState(() {
-                            if (!locations.contains(selected)) {
-                              locations.add(selected);
-                              writeToFile(
-                                  jsonEncode(locations), UserSettings.fileName);
-                            } else {
-                              snackBar(
-                                  title: "Adresse déjà ajoutée.",
-                                  message:
-                                      "L'adresse fait déjà partie de la liste.");
-                            }
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 25),
+                      child: Text(selected.toString(),
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyText1),
+                    ),
+                    const Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ElevatedButton(
+                          child: const Text("Annuler"),
+                          onPressed: () {
                             Navigator.of(context).pop();
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                ],
+                          },
+                        ),
+                        ElevatedButton(
+                          child: const Text("Confirmer"),
+                          onPressed: () async {
+                            List locations = await _futureLocations;
+                            setState(() {
+                              if (!locations.contains(selected)) {
+                                locations.add(selected);
+                                writeToFile(jsonEncode(locations),
+                                    UserSettings.fileName);
+                              } else {
+                                snackBar(
+                                    title: "Adresse déjà ajoutée.",
+                                    message:
+                                        "L'adresse fait déjà partie de la liste.");
+                              }
+                              Navigator.of(context).pop();
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             );
           },
@@ -231,13 +231,13 @@ class _UserSettingsState extends State<UserSettings> {
                 child: Container(
                   margin: const EdgeInsets.symmetric(vertical: 10),
                   child: ListTile(
-                    title: Text(data[i].toString()),
-                    leading: const Icon(Icons.location_on_outlined),
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(color: Colors.black),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
+                      style: ListTileStyle.drawer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        side: const BorderSide(color: Colors.black, width: 1),
+                      ),
+                      title: Text(data[i].toString()),
+                      leading: const Icon(Icons.location_on_outlined)),
                 ),
                 key: UniqueKey(),
                 background: Container(

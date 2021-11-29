@@ -9,8 +9,7 @@ class ListHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(5, 10, 0, 5),
-      child: Text(title,
-          style: const TextStyle(color: Colors.black, fontSize: 30)),
+      child: Text(title, style: Theme.of(context).textTheme.headline2),
     );
   }
 }

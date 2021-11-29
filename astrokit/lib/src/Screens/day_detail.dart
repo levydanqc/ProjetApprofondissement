@@ -22,7 +22,9 @@ class DayDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: header(
-          title: Text(dayData["postalCode"]),
+          title: DateFormat('EEEE')
+              .format(DateTime.parse(dayData["valid_date"]))
+              .capitalize(),
           context: context,
           actions: <Widget>[
             Padding(
@@ -42,41 +44,50 @@ class DayDetail extends StatelessWidget {
           ]),
       body: Column(
         children: [
-          Align(
-            alignment: Alignment.center,
+          Container(
             child: Text(
-              DateFormat('EEEE')
+              DateFormat('d/M/y')
                   .format(DateTime.parse(dayData["valid_date"]))
                   .capitalize(),
-              style: const TextStyle(fontSize: 40, color: Colors.black),
+              style: Theme.of(context).textTheme.headline2,
             ),
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+            alignment: Alignment.centerLeft,
           ),
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              DateFormat('yMd')
-                  .format(DateTime.parse(dayData["valid_date"]))
-                  .capitalize(),
-              style: const TextStyle(fontSize: 25, color: Colors.black),
-            ),
-          ),
-          Flexible(
-            child: GridView.count(
-              crossAxisCount: 3,
-              mainAxisSpacing: 0,
-              crossAxisSpacing: 0,
-              children: List.generate(
-                dayData.length,
-                (i) => Column(
-                  children: [
-                    Text(
-                      dayData.keys.elementAt(i),
-                      style:
-                          const TextStyle(decoration: TextDecoration.underline),
-                    ),
-                    Text(dayData.values.elementAt(i).toString())
-                  ],
-                ),
+          Expanded(
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: ListView.builder(
+                itemCount: dayData.length,
+                itemBuilder: (context, i) {
+                  if (!["weather", "postalCode"]
+                      .contains(dayData.keys.elementAt(i))) {
+                    return Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              dayData.keys.elementAt(i),
+                              style: Theme.of(context).textTheme.headline3,
+                            ),
+                            const Spacer(),
+                            Text(
+                              dayData.values.elementAt(i).toString(),
+                              style: Theme.of(context).textTheme.bodyText1,
+                            ),
+                          ],
+                        ),
+                        const Divider(
+                          color: Colors.black,
+                          height: 10,
+                          thickness: 1,
+                        )
+                      ],
+                    );
+                  }
+                  return const SizedBox.shrink();
+                },
               ),
             ),
           ),

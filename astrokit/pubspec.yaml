@@ -14,6 +14,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  google_fonts:
   another_flushbar:
   flutter_launcher_icons:
   crypto:

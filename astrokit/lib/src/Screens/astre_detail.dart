@@ -1,5 +1,4 @@
 import 'package:astrokit/src/Shared/app_bar.dart';
-import 'package:astrokit/src/class/astres.dart';
 import 'package:astrokit/src/utils/capitalize.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +14,7 @@ class AstreDetail extends StatefulWidget {
 }
 
 class _AstreDetailState extends State<AstreDetail> {
-  Map _astreDetail = {};
+  final Map _astreDetail = {};
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +26,9 @@ class _AstreDetailState extends State<AstreDetail> {
     });
 
     return Scaffold(
-      backgroundColor: Colors.deepPurple[900],
       appBar: header(
         context: context,
-        title: Text(widget.astre['nom']),
+        title: widget.astre['nom'],
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
@@ -56,8 +54,8 @@ class _AstreDetailState extends State<AstreDetail> {
               return Container(
                 decoration: BoxDecoration(
                   color: index % 2 == 0
-                      ? Colors.deepPurple[900]
-                      : Colors.deepPurple[300],
+                      ? Theme.of(context).primaryColor
+                      : Theme.of(context).secondaryHeaderColor,
                 ),
                 child: Padding(
                   padding:
@@ -65,14 +63,10 @@ class _AstreDetailState extends State<AstreDetail> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        _astreDetail.keys.elementAt(index),
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                      Text(
-                        _astreDetail.values.elementAt(index),
-                        style: const TextStyle(color: Colors.white),
-                      ),
+                      Text(_astreDetail.keys.elementAt(index),
+                          style: Theme.of(context).textTheme.headline3),
+                      Text(_astreDetail.values.elementAt(index),
+                          style: Theme.of(context).textTheme.bodyText1),
                     ],
                   ),
                 ),
@@ -83,7 +77,7 @@ class _AstreDetailState extends State<AstreDetail> {
             padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
             child: Text(
               widget.astre['description'].join('\n'),
-              style: const TextStyle(color: Colors.white),
+              style: Theme.of(context).textTheme.bodyText1,
             ),
           ),
           SafeArea(
@@ -94,7 +88,7 @@ class _AstreDetailState extends State<AstreDetail> {
                 widget.astre['categorie'] == "satellite"
                     ? "* La distance est relative au corps central du satellite."
                     : "",
-                style: const TextStyle(color: Colors.white),
+                style: Theme.of(context).textTheme.bodyText1,
               ),
             ),
           )

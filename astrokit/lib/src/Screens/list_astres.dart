@@ -22,7 +22,7 @@ class ListAstres extends StatefulWidget {
 class _ListAstresState extends State<ListAstres> {
   late Future<List<Astre>> _astres;
   Icon _iconSearch = const Icon(Icons.search);
-  Widget _searchBar = const Text('Liste des astres');
+  dynamic _searchBar = 'Liste des astres';
   Icon _favIcon = const Icon(Icons.favorite_outline_outlined);
 
   @override
@@ -103,11 +103,17 @@ class _ListAstresState extends State<ListAstres> {
                 Astre astre = snapshot.data![index];
                 return Container(
                   margin: const EdgeInsets.all(8),
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                    color: Colors.amber,
-                  ),
+                  // decoration: const BoxDecoration(
+                  //   borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  //   color: Colors.amber,
+                  // ),
                   child: ListTile(
+                    style: ListTileStyle.drawer,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      side: const BorderSide(color: Colors.white, width: 1),
+                    ),
+                    tileColor: const Color(0xffA6885C),
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -133,8 +139,12 @@ class _ListAstresState extends State<ListAstres> {
                         child: Image.asset('assets/images/astres/moon.jpg'),
                       ),
                     ),
-                    title: Text(astre.nom.toString().capitalize()),
-                    subtitle: Text(astre.categorie.toString().capitalize()),
+                    title: Text(
+                      astre.nom.toString().capitalize(),
+                      style: Theme.of(context).textTheme.headline4,
+                    ),
+                    subtitle: Text(astre.categorie.toString().capitalize(),
+                        style: Theme.of(context).textTheme.bodyText2),
                     onTap: () {
                       Navigator.pushNamed(
                         context,
@@ -153,98 +163,6 @@ class _ListAstresState extends State<ListAstres> {
             child: CircularProgressIndicator(),
           );
         },
-      ),
-    );
-  }
-}
-
-class mytile extends StatelessWidget {
-  const mytile({
-    Key? key,
-    required this.astre,
-  }) : super(key: key);
-
-  final Astre astre;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-        color: Colors.amber,
-      ),
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-      child: GestureDetector(
-        onTap: () {
-          Navigator.pushNamed(
-            context,
-            AstreDetail.routeName,
-            arguments: astre.toJson(),
-          );
-        },
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Hero(
-                  tag: astre.nom,
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          bottomLeft: Radius.circular(10)),
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/astres/moon.jpg"),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: const SizedBox(
-                      width: 60,
-                      height: 60,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(astre.nom,
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold)),
-                      const SizedBox(height: 5),
-                      Text(astre.categorie,
-                          style: const TextStyle(
-                              color: Colors.black87, fontSize: 13)),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: IconButton(
-                    icon: Icon(astre.fav
-                        ? Icons.favorite_outlined
-                        : Icons.favorite_outline_outlined),
-                    color: Colors.black,
-                    onPressed: () {},
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Icon(Icons.chevron_right_rounded, color: Colors.black),
-                ),
-              ],
-            ),
-          ],
-        ),
       ),
     );
   }

@@ -76,8 +76,8 @@ class _HomeState extends State<Home> {
               appBar: header(
                   context: context,
                   title: data![0].isNotEmpty
-                      ? Text(data[0][indice].postalCode)
-                      : const Text("AstroKit"),
+                      ? data[0][indice].postalCode
+                      : "AstroKit",
                   leading: ActionButton(
                     icon: Icons.manage_accounts_outlined,
                     click: () {
@@ -132,9 +132,9 @@ class _HomeState extends State<Home> {
       itemCount: snapshot[1]["data"].length,
       itemBuilder: (BuildContext context, int index) {
         if (index == 0) {
-          return const ListHeader("Tonight");
+          return const ListHeader("Ce soir");
         } else if (index == 2) {
-          return const ListHeader("Next 16 days");
+          return const ListHeader("16 prochains jours");
         } else if (index == 1) {
           index = 0;
         } else {
