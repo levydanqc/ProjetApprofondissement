@@ -36,6 +36,7 @@ dependencies:
   provider:
   audioplayers:
   flutter_spinkit:
+  video_player:
 
 flutter_icons:
   ios: true
@@ -62,3 +63,4 @@ flutter:
     - assets/images/nmode.png
     - assets/astres.json
     - assets/opening.mp3
+    - assets/help.mov

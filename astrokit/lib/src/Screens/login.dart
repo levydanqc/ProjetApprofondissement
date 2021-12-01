@@ -24,10 +24,12 @@ class _LoginScreenState extends State<LoginScreen> {
       if (value) {
         Astre.loadAstres();
       }
-    });
-    _isLoggedIn().then((value) {
+      else {
+        _isLoggedIn().then((value) {
       if (value) {
         Navigator.pushReplacementNamed(context, Home.routeName);
+      }
+    });
       }
     });
   }
