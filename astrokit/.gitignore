@@ -1,6 +1,7 @@
 # Own
 *private*
 .env*
+/assets/help.mov
 
 # Miscellaneous
 *.class

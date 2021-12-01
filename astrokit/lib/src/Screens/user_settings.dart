@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:astrokit/src/Screens/login_screen.dart';
+import 'package:astrokit/src/Screens/login.dart';
 import 'package:astrokit/src/Shared/action_button.dart';
 import 'package:astrokit/src/Shared/app_bar.dart';
 import 'package:astrokit/src/Shared/error_screen.dart';
