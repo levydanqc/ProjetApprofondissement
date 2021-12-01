@@ -32,6 +32,7 @@ class _HomeState extends State<Home> {
   int indice = 0;
   late Future<Map> _futureData;
   late Future<List> _futureLocations;
+  bool _displayButton = false;
 
   @override
   void initState() {
@@ -42,7 +43,23 @@ class _HomeState extends State<Home> {
     }
     _futureLocations = getLocations();
     _futureData = getForecast();
+
+    _scrollController.addListener(() {
+      setState(() {
+        if (_scrollController.offset >= 150) {
+          _displayButton = true;
+        } else {
+          _displayButton = false;
+        }
+      });
+    });
     super.initState();
+  }
+
+  void _scroll() {
+    _scrollController.animateTo(0,
+        duration: const Duration(seconds: 3),
+        curve: Curves.fastLinearToSlowEaseIn);
   }
 
   Future<Map> getForecast() async {
@@ -122,6 +139,13 @@ class _HomeState extends State<Home> {
                 },
                 child: listDay(data),
               ),
+              floatingActionButton: _displayButton
+                  ? FloatingActionButton(
+                      backgroundColor: Colors.amber,
+                      onPressed: _scroll,
+                      child: const Icon(Icons.keyboard_arrow_up, size: 35),
+                    )
+                  : null,
             );
           } else if (snapshot.hasError) {
             return errorScreen(context, Home.routeName);
