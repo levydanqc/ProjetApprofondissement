@@ -25,7 +25,6 @@ class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
-// TODO : Add floating Go to top button
 
 class _HomeState extends State<Home> {
   final ScrollController _scrollController = ScrollController();

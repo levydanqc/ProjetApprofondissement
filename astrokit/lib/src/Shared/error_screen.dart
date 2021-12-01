@@ -28,9 +28,13 @@ Widget errorScreen(BuildContext context, String routeName) {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Center(
-          child: Text(
-            "Il y a eu une erreur lors de l'obtention des données...",
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Center(
+            child: Text(
+              "Il y a eu une erreur lors de l'obtention des données...",
+              style: Theme.of(context).textTheme.headline3,
+            ),
           ),
         ),
         ElevatedButton(

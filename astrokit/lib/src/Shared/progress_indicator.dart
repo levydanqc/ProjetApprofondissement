@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-// TODO: use flutter_spinkit --> SpinKitChasingDots
-Widget progressIndicator() => const Center(child: CircularProgressIndicator());
+Widget progressIndicator() => const Center(child: SpinKitChasingDots(
+            color: Colors.white,
+            size: 100.0,
+          ),);
