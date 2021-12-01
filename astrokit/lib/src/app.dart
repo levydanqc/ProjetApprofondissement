@@ -1,4 +1,5 @@
 import 'package:astrokit/src/Screens/astre_detail.dart';
+import 'package:astrokit/src/Screens/help.dart';
 import 'package:astrokit/src/Screens/list_astres.dart';
 import 'package:astrokit/src/Screens/home.dart';
 import 'package:astrokit/src/Screens/user_settings.dart';
@@ -80,6 +81,12 @@ class MyApp extends StatelessWidget {
                             child: AstreDetail(
                                 astre: routeSettings.arguments
                                     as Map<String, dynamic>),
+                          );
+                        case HelpScreen.routeName:
+                          return PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            curve: Curves.linear,
+                            child: const HelpScreen(),
                           );
                         case LoginScreen.routeName:
                         default:

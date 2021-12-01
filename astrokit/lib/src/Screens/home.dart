@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:astrokit/src/Screens/help.dart';
 import 'package:astrokit/src/Screens/list_astres.dart';
 import 'package:astrokit/src/Screens/user_settings.dart';
 import 'package:astrokit/src/Shared/action_button.dart';
@@ -98,7 +99,10 @@ class _HomeState extends State<Home> {
                     Padding(
                       padding: const EdgeInsets.only(right: 20.0),
                       child: ActionButton(
-                          icon: Icons.help_outline_outlined, click: () {}),
+                          icon: Icons.help_outline_outlined,
+                          click: () {
+                            Navigator.pushNamed(context, HelpScreen.routeName);
+                          }),
                     ),
                   ]),
               body: GestureDetector(

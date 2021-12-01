@@ -28,12 +28,7 @@ class _AstreDetailState extends State<AstreDetail> {
     return Scaffold(
       appBar: header(
         context: context,
-        title: widget.astre['nom'],
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
+        title: widget.astre['nom'],      ),
       body: ListView(
         shrinkWrap: true,
         children: [

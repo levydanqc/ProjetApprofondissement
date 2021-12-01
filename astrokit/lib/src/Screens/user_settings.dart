@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:astrokit/src/Screens/home.dart';
 import 'package:astrokit/src/Screens/login_screen.dart';
 import 'package:astrokit/src/Shared/action_button.dart';
 import 'package:astrokit/src/Shared/app_bar.dart';
@@ -49,11 +48,6 @@ class _UserSettingsState extends State<UserSettings> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: header(
-          leading: ActionButton(
-              icon: Icons.arrow_back_ios_new_outlined,
-              click: () {
-                Navigator.pushNamed(context, Home.routeName);
-              }),
           title: "Endroits",
           context: context,
           actions: <Widget>[
