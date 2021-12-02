@@ -104,7 +104,6 @@ class _ListAstresState extends State<ListAstres> {
                 return Container(
                   margin: const EdgeInsets.all(8),
                   child: ListTile(
-                    style: ListTileStyle.drawer,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                       side: const BorderSide(color: Colors.white, width: 1),

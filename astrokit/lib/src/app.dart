@@ -11,7 +11,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'Screens/day_detail.dart';
-import 'Screens/login_screen.dart';
+import 'Screens/login.dart';
 import 'settings/settings_controller.dart';
 import 'utils/theme_model.dart';
 

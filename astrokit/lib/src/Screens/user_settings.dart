@@ -47,42 +47,37 @@ class _UserSettingsState extends State<UserSettings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: header(
-          title: "Endroits",
-          context: context,
-          actions: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(right: 20.0),
-              child: Switch(
-                value: Provider.of<ThemeModel>(context).redModeEnabled,
-                onChanged: (bool value) {
-                  setState(() {
-                    Provider.of<ThemeModel>(context, listen: false)
-                        .toggleTheme();
-                  });
-                },
-                activeTrackColor: Colors.deepPurple[700],
-                activeColor: Colors.deepPurple[400],
-                activeThumbImage: const AssetImage("assets/images/nmode.png"),
-                inactiveTrackColor: Colors.yellow[700],
-                inactiveThumbColor: Colors.yellow[700],
-                inactiveThumbImage: const AssetImage("assets/images/lmode.png"),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 20.0),
-              child: ActionButton(
-                icon: Icons.logout_rounded,
-                click: () async {
-                  SharedPreferences prefs =
-                      await SharedPreferences.getInstance();
-                  prefs.setBool("isLogged", false);
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      LoginScreen.routeName, (Route<dynamic> route) => false);
-                },
-              ),
-            ),
-          ]),
+      appBar: header(title: "Endroits", context: context, actions: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(right: 20.0),
+          child: Switch(
+            value: Provider.of<ThemeModel>(context).redModeEnabled,
+            onChanged: (bool value) {
+              setState(() {
+                Provider.of<ThemeModel>(context, listen: false).toggleTheme();
+              });
+            },
+            activeTrackColor: Colors.deepPurple[700],
+            activeColor: Colors.deepPurple[400],
+            activeThumbImage: const AssetImage("assets/images/nmode.png"),
+            inactiveTrackColor: Colors.yellow[700],
+            inactiveThumbColor: Colors.yellow[700],
+            inactiveThumbImage: const AssetImage("assets/images/lmode.png"),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(right: 20.0),
+          child: ActionButton(
+            icon: Icons.logout_rounded,
+            click: () async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              prefs.setBool("isLogged", false);
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                  LoginScreen.routeName, (Route<dynamic> route) => false);
+            },
+          ),
+        ),
+      ]),
       body: Builder(builder: (context) {
         return Column(
           children: [
@@ -225,7 +220,6 @@ class _UserSettingsState extends State<UserSettings> {
                 child: Container(
                   margin: const EdgeInsets.symmetric(vertical: 10),
                   child: ListTile(
-                      style: ListTileStyle.drawer,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                         side: const BorderSide(color: Colors.black, width: 1),
