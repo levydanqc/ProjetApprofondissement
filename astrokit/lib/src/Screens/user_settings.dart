@@ -34,7 +34,7 @@ class UserSettings extends StatefulWidget {
 }
 
 class _UserSettingsState extends State<UserSettings> {
-  final GoogleMapsPlaces _places = GoogleMapsPlaces(apiKey: $GOOGLE_API);
+  final GoogleMapsPlaces _places = GoogleMapsPlaces(apiKey: env.GOOGLE_API);
   late Future<List> _futureLocations;
   final ScrollController _scrollController = ScrollController();
 
@@ -88,7 +88,7 @@ class _UserSettingsState extends State<UserSettings> {
                 onPressed: () async {
                   PlacesAutocomplete.show(
                     context: context,
-                    apiKey: $GOOGLE_API,
+                    apiKey: env.GOOGLE_API,
                     mode: Mode.overlay,
                     types: [],
                     radius: 10000000,
