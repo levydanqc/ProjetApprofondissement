@@ -6,20 +6,19 @@ import 'package:astrokit/src/Shared/app_bar.dart';
 import 'package:astrokit/src/Shared/error_screen.dart';
 import 'package:astrokit/src/Shared/progress_indicator.dart';
 import 'package:astrokit/src/Shared/snack_bar.dart';
-import 'package:astrokit/src/utils/file_manager.dart';
 import 'package:astrokit/src/class/position.dart';
+import 'package:astrokit/src/utils/file_manager.dart';
 import 'package:astrokit/src/utils/round.dart';
 import 'package:astrokit/src/utils/theme_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_google_places/flutter_google_places.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:google_maps_webservice/places.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../.env.dart' as env;
-
-import 'package:flutter_google_places/flutter_google_places.dart';
-import 'package:google_maps_webservice/places.dart';
-import 'package:geocoding/geocoding.dart';
-
 import 'package:uuid/uuid.dart';
+
+import '../.env.dart' as env;
 
 class UserSettings extends StatefulWidget {
   final Map args;

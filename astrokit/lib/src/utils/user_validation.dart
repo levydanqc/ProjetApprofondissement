@@ -1,7 +1,9 @@
-import 'package:flutter_login/flutter_login.dart';
 import 'dart:convert';
+
 import 'package:crypto/crypto.dart';
+import 'package:flutter_login/flutter_login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import '../class/credentials_manager.dart';
 
 Duration get loginTime => const Duration(milliseconds: 200);

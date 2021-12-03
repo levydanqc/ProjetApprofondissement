@@ -1,4 +1,4 @@
-import 'package:audioplayers/audioplayers.dart';
+import 'package:astrokit/src/utils/file_manager.dart';
 import 'package:flutter/material.dart';
 
 class ThemeModel extends ChangeNotifier {
@@ -6,6 +6,7 @@ class ThemeModel extends ChangeNotifier {
   static Color redFilter = Colors.transparent;
 
   toggleTheme() async {
+    playLocalAsset("switch.mp3");
     if (redFilter == Colors.transparent) {
       redFilter = redOverlay;
 
@@ -15,14 +16,8 @@ class ThemeModel extends ChangeNotifier {
 
       return notifyListeners();
     }
-    // playLocalAsset();
   }
 
   Color get overlayColor => redFilter;
   bool get redModeEnabled => redFilter == redOverlay;
-
-  Future<AudioPlayer> playLocalAsset() async {
-    AudioCache cache = AudioCache();
-    return await cache.play("opening.mp3");
-  }
 }

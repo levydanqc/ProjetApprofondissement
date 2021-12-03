@@ -44,7 +44,7 @@ flutter_icons:
   adaptative_icon_background: #ffffff
   adaptative_icon_foreground: assets/launcher_icons/foreground.png
   remove_alpha_ios: true
-  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -62,5 +62,6 @@ flutter:
     - assets/images/lmode.png
     - assets/images/nmode.png
     - assets/astres.json
-    - assets/opening.mp3
+    - assets/switch.mp3
+    - assets/refresh.mp3
     - assets/help.mov

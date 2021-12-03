@@ -1,6 +1,8 @@
-import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:io';
+
+import 'package:http/http.dart' as http;
+
 import '../.env.dart' as env;
 import '../utils/file_manager.dart';
 
@@ -10,6 +12,7 @@ class Forecast {
   /// Getting forecast data from API.
   /// Storing forecast data inside [data].
   static Future<Map> getForecast(double lat, double lon) async {
+    playLocalAsset("refresh.mp3");
     Map data = {};
 
     // Get forecast for the next 16 days daily.

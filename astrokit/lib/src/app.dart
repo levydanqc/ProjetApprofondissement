@@ -1,15 +1,15 @@
 import 'package:astrokit/src/Screens/astre_detail.dart';
 import 'package:astrokit/src/Screens/help.dart';
-import 'package:astrokit/src/Screens/list_astres.dart';
 import 'package:astrokit/src/Screens/home.dart';
+import 'package:astrokit/src/Screens/list_astres.dart';
 import 'package:astrokit/src/Screens/user_settings.dart';
 import 'package:astrokit/src/utils/theme_model.dart';
 import 'package:astrokit/src/utils/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+
 import 'Screens/day_detail.dart';
 import 'Screens/login.dart';
 import 'settings/settings_controller.dart';

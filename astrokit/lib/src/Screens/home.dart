@@ -5,14 +5,14 @@ import 'package:astrokit/src/Screens/list_astres.dart';
 import 'package:astrokit/src/Screens/user_settings.dart';
 import 'package:astrokit/src/Shared/action_button.dart';
 import 'package:astrokit/src/Shared/app_bar.dart';
+import 'package:astrokit/src/Shared/day_item.dart';
 import 'package:astrokit/src/Shared/error_screen.dart';
 import 'package:astrokit/src/Shared/list_header.dart';
-import 'package:astrokit/src/Shared/day_item.dart';
 import 'package:astrokit/src/Shared/progress_indicator.dart';
 import 'package:astrokit/src/Shared/snack_bar.dart';
-import 'package:astrokit/src/utils/file_manager.dart';
 import 'package:astrokit/src/class/forecast.dart';
 import 'package:astrokit/src/class/position.dart';
+import 'package:astrokit/src/utils/file_manager.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable

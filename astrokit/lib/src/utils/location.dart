@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:astrokit/src/Screens/user_settings.dart';
-import 'package:astrokit/src/utils/file_manager.dart';
 import 'package:astrokit/src/class/position.dart' as pos;
+import 'package:astrokit/src/utils/file_manager.dart';
 import 'package:astrokit/src/utils/round.dart';
 import 'package:geocoding/geocoding.dart' as geo;
 import 'package:geolocator/geolocator.dart';

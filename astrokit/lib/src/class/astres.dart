@@ -1,7 +1,8 @@
-import 'package:astrokit/src/utils/file_manager.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'dart:convert';
+
+import 'package:astrokit/src/utils/file_manager.dart';
 import 'package:flutter/services.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'astres.g.dart';
 

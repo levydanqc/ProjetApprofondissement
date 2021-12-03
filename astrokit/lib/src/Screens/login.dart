@@ -4,8 +4,9 @@ import 'package:astrokit/src/utils/location.dart';
 import 'package:astrokit/src/utils/user_validation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
-import '../const.dart' as env;
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../const.dart' as env;
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
