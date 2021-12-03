@@ -17,7 +17,7 @@ jobs:
     
     - uses: actions/checkout@v2
     - name: Decode base64 secrets
-      run: echo $SECRETS_FILE_CONTENT | base64 -d > lib/src/.env.dart
+      run: touch lib/src/.env.dart && echo $SECRETS_FILE_CONTENT | base64 -d > lib/src/.env.dart
       env:
         SECRETS_FILE_CONTENTS: ${{ secrets.SECRETS_FILE_CONTENT }}
     # Setup Java environment in order to build the Android app.
