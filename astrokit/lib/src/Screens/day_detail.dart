@@ -2,10 +2,10 @@ import 'dart:math';
 
 import 'package:astrokit/src/Screens/list_astres.dart';
 import 'package:astrokit/src/Shared/action_button.dart';
-import 'package:astrokit/src/utils/capitalize.dart';
-import 'package:intl/intl.dart';
 import 'package:astrokit/src/Shared/app_bar.dart';
+import 'package:astrokit/src/utils/capitalize.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class DayDetail extends StatelessWidget {
   static const routeName = '/daydetail';
