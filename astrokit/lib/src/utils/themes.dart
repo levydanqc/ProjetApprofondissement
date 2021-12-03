@@ -54,8 +54,11 @@ ThemeData darkTheme = ThemeData(
     ),
   ),
   snackBarTheme: SnackBarThemeData(
-    backgroundColor: dBlue,
     contentTextStyle: GoogleFonts.robotoMono(),
+    elevation: 10,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
   ),
   listTileTheme: ListTileThemeData(
     shape: RoundedRectangleBorder(
@@ -113,8 +116,11 @@ ThemeData lightTheme = ThemeData(
     ),
   ),
   snackBarTheme: SnackBarThemeData(
-    backgroundColor: blue,
     contentTextStyle: GoogleFonts.robotoMono(),
+    elevation: 10,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
   ),
   listTileTheme: ListTileThemeData(
     shape: RoundedRectangleBorder(
