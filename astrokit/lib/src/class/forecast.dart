@@ -18,7 +18,7 @@ class Forecast {
           '?lon=$lon&lat=$lat'),
       headers: {
         'x-rapidapi-host': 'weatherbit-v1-mashape.p.rapidapi.com',
-        'x-rapidapi-key': env.WEATHERBIT_API,
+        'x-rapidapi-key': $WEATHERBIT_API,
       },
     );
 
