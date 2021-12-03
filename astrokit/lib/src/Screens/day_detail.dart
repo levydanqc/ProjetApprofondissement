@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:astrokit/src/Screens/help.dart';
 import 'package:astrokit/src/Screens/list_astres.dart';
 import 'package:astrokit/src/Shared/action_button.dart';
 import 'package:astrokit/src/Shared/app_bar.dart';
@@ -33,13 +34,16 @@ class DayDetail extends StatelessWidget {
                   icon: Image.asset("assets/images/astres/icon.png",
                       width: 25, height: 25),
                   onPressed: () {
-                    Navigator.pushNamed(context, ListAstres.routeName);
+                    Navigator.popAndPushNamed(context, ListAstres.routeName);
                   }),
             ),
             Padding(
               padding: const EdgeInsets.only(right: 20.0),
-              child:
-                  ActionButton(icon: Icons.help_outline_outlined, click: () {}),
+              child: ActionButton(
+                  icon: Icons.help_outline_outlined,
+                  click: () {
+                    Navigator.popAndPushNamed(context, HelpScreen.routeName);
+                  }),
             ),
           ]),
       body: Column(
