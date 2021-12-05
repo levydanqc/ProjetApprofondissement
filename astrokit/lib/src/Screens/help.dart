@@ -12,7 +12,7 @@ class HelpScreen extends StatefulWidget {
 
 class _HelpScreenState extends State<HelpScreen> with TickerProviderStateMixin {
   final YoutubePlayerController _controller = YoutubePlayerController(
-    initialVideoId: '9pbiHeDw2gw',
+    initialVideoId: 'H9miEYiEing',
     flags: const YoutubePlayerFlags(
       hideControls: false,
       controlsVisibleAtStart: true,
@@ -23,6 +23,8 @@ class _HelpScreenState extends State<HelpScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: header(
         context: context,
@@ -35,6 +37,8 @@ class _HelpScreenState extends State<HelpScreen> with TickerProviderStateMixin {
         alignment: Alignment.center,
         child: YoutubePlayer(
           controller: _controller,
+          aspectRatio: 19.5 / 9,
+          width: size.width * 2,
           showVideoProgressIndicator: true,
           progressIndicatorColor: Theme.of(context).primaryColor,
         ),
