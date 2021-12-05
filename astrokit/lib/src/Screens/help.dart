@@ -1,5 +1,6 @@
 import 'package:astrokit/src/Shared/app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class HelpScreen extends StatefulWidget {
@@ -20,6 +21,15 @@ class _HelpScreenState extends State<HelpScreen> with TickerProviderStateMixin {
       mute: false,
     ),
   );
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
