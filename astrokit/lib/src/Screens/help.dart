@@ -1,6 +1,6 @@
 import 'package:astrokit/src/Shared/app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class HelpScreen extends StatefulWidget {
   const HelpScreen({Key? key}) : super(key: key);
@@ -11,29 +11,15 @@ class HelpScreen extends StatefulWidget {
 }
 
 class _HelpScreenState extends State<HelpScreen> with TickerProviderStateMixin {
-  late VideoPlayerController _controller;
-  late AnimationController animation;
-  late Animation<double> _fadeInFadeOut;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = VideoPlayerController.asset("assets/help.mov")
-      ..initialize().then((_) {
-        setState(() {});
-      });
-    animation = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-    _fadeInFadeOut = Tween<double>(begin: 0.0, end: 0.5).animate(animation);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
-  }
+  final YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: '9pbiHeDw2gw',
+    flags: const YoutubePlayerFlags(
+      hideControls: false,
+      controlsVisibleAtStart: true,
+      autoPlay: false,
+      mute: false,
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -47,46 +33,11 @@ class _HelpScreenState extends State<HelpScreen> with TickerProviderStateMixin {
       ),
       body: Container(
         alignment: Alignment.center,
-        child: _controller.value.isInitialized
-            ? Stack(
-                alignment: Alignment.center,
-                children: [
-                  FadeTransition(
-                      opacity: _fadeInFadeOut,
-                      child: Icon(_controller.value.isPlaying
-                          ? Icons.pause
-                          : Icons.play_arrow)),
-                  GestureDetector(
-                    onTap: () {
-                      _controller.value.isPlaying
-                          ? _controller.pause()
-                          : _controller.play();
-                      animation.addStatusListener((status) {
-                        if (status == AnimationStatus.completed) {
-                          animation.reverse();
-                        } else if (status == AnimationStatus.dismissed) {
-                          animation.forward();
-                        }
-                      });
-                      animation.forward();
-                    },
-                    child: AspectRatio(
-                      aspectRatio: _controller.value.aspectRatio,
-                      child: VideoPlayer(_controller),
-                    ),
-                  ),
-                ],
-              )
-            : Container(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() => _controller.value.isPlaying
-              ? _controller.pause()
-              : _controller.play());
-        },
-        child:
-            Icon(_controller.value.isPlaying ? Icons.pause : Icons.play_arrow),
+        child: YoutubePlayer(
+          controller: _controller,
+          showVideoProgressIndicator: true,
+          progressIndicatorColor: Theme.of(context).primaryColor,
+        ),
       ),
     );
   }
